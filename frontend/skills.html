@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Skills - Student Career CRM</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .skills-header {
+            background-color: #168de2;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .skills-header h1 {
+            margin: 0 0 15px;
+            font-size: 36px;
+        }
+
+        .skills-header p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .skills-container {
+            width: 80%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .skill-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-card h2 {
+            color: #168de2;
+            margin-top: 0;
+        }
+
+        .skill {
+            margin: 20px 0;
+        }
+
+        .skill-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .progress {
+            width: 100%;
+            height: 18px;
+            background-color: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #168de2;
+            border-radius: 10px;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin: 20px 0 40px;
+            padding: 12px 25px;
+            background-color: #168de2;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .back-button:hover {
+            background-color: #0d6fb8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="skills-header">
+        <h1>My Skills</h1>
+        <p>Track your technical and professional skills.</p>
+    </div>
+
+    <!-- Skills -->
+    <div class="skills-container">
+
+        <!-- Technical Skills -->
+        <div class="skill-card">
+
+            <h2>Technical Skills</h2>
+
+            <!-- HTML -->
+            <div class="skill">
+                <div class="skill-name">HTML</div>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 92%;"></div>
+                </div>
+            </div>
+
+            <!-- CSS -->
+            <div class="skill">
+                <div class="skill-name">CSS</div>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 82%;"></div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="skill">
+                <div class="skill-name">JavaScript</div>
+
+                <div class="progress">
+                    <div class="progress-bar" style="width: 75%;"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Back to Dashboard -->
+        <div style="text-align: center;">
+            <a href="index.html" class="back-button">
+                ← Back to Dashboard
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

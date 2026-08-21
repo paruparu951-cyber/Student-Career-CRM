@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resume Builder - Student Career CRM</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main>
+
+    <h1>Resume Builder</h1>
+
+    <p style="text-align: center;">
+        Create and manage your professional resume.
+    </p>
+
+    <form id="resumeForm">
+
+        <div class="form-group">
+            <label for="resumeName">Full Name</label>
+            <input
+                type="text"
+                id="resumeName"
+                placeholder="Enter your full name"
+                required
+            >
+        </div>
+
+        <div class="form-row">
+
+            <div class="form-group">
+                <label for="resumeEmail">Email</label>
+                <input
+                    type="email"
+                    id="resumeEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="resumePhone">Phone</label>
+                <input
+                    type="tel"
+                    id="resumePhone"
+                    placeholder="Enter your phone number"
+                >
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="resumeEducation">Education</label>
+            <textarea
+                id="resumeEducation"
+                placeholder="Enter your college, course, degree, etc."
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="resumeSkills">Skills</label>
+            <textarea
+                id="resumeSkills"
+                placeholder="e.g. HTML, CSS, JavaScript, Python"
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="resumeExperience">Experience</label>
+            <textarea
+                id="resumeExperience"
+                placeholder="Enter your internships, projects, work experience, etc."
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="resumeSummary">Professional Summary</label>
+            <textarea
+                id="resumeSummary"
+                placeholder="Write a short professional summary"
+            ></textarea>
+        </div>
+
+        <button type="submit">
+            Save Resume
+        </button>
+
+        <p id="resumeMessage"></p>
+
+    </form>
+
+    <a href="index.html" class="back-button">
+        ← Back to Dashboard
+    </a>
+
+</main>
+
+
+<script>
+
+    const resumeForm = document.getElementById("resumeForm");
+    const resumeMessage = document.getElementById("resumeMessage");
+
+    // Load saved profile information into resume
+    window.onload = function () {
+
+        document.getElementById("resumeName").value =
+            localStorage.getItem("fullName") || "";
+
+        document.getElementById("resumeEmail").value =
+            localStorage.getItem("email") || "";
+
+        document.getElementById("resumePhone").value =
+            localStorage.getItem("phone") || "";
+
+        document.getElementById("resumeSkills").value =
+            localStorage.getItem("skills") || "";
+    };
+
+
+    // Save resume
+    resumeForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        localStorage.setItem(
+            "resumeName",
+            document.getElementById("resumeName").value
+        );
+
+        localStorage.setItem(
+            "resumeEmail",
+            document.getElementById("resumeEmail").value
+        );
+
+        localStorage.setItem(
+            "resumePhone",
+            document.getElementById("resumePhone").value
+        );
+
+        localStorage.setItem(
+            "resumeEducation",
+            document.getElementById("resumeEducation").value
+        );
+
+        localStorage.setItem(
+            "resumeSkills",
+            document.getElementById("resumeSkills").value
+        );
+
+        localStorage.setItem(
+            "resumeExperience",
+            document.getElementById("resumeExperience").value
+        );
+
+        localStorage.setItem(
+            "resumeSummary",
+            document.getElementById("resumeSummary").value
+        );
+
+        resumeMessage.textContent =
+            "Resume saved successfully!";
+
+        resumeMessage.style.color = "green";
+        resumeMessage.style.fontWeight = "bold";
+    });
+
+</script>
+
+</body>
+</html>

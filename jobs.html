@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jobs & Internships - Student Career CRM</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f8fc;
+            color: #222;
+        }
+
+        header {
+            background-color: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin-top: 10px;
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        /* Success message at the top */
+        #applicationMessage {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: green;
+            margin: 15px 0 25px 0;
+            min-height: 25px;
+            display: none;
+        }
+
+        .job-card {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .job-card h2 {
+            color: #0d6efd;
+            margin-top: 0;
+        }
+
+        .job-card p {
+            margin: 10px 0;
+        }
+
+        .apply-button {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .apply-button:hover {
+            background-color: #0b5ed7;
+        }
+
+        .back-button {
+            display: block;
+            text-align: center;
+            margin: 30px auto;
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Jobs & Internships</h1>
+        <p>Explore job and internship opportunities.</p>
+    </header>
+
+
+    <div class="container">
+
+        <!-- Application Success Message -->
+        <p id="applicationMessage"></p>
+
+
+        <!-- Software Developer Intern -->
+        <div class="job-card">
+
+            <h2>💻 Software Developer Intern</h2>
+
+            <p>
+                <strong>Company:</strong>
+                Tech Solutions
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                Chennai
+            </p>
+
+            <p>
+                <strong>Type:</strong>
+                Internship
+            </p>
+
+            <button
+                class="apply-button"
+                onclick="applyJob('Software Developer Intern', 'Tech Solutions')">
+                Apply
+            </button>
+
+        </div>
+
+
+        <!-- Frontend Developer -->
+        <div class="job-card">
+
+            <h2>🌐 Frontend Developer</h2>
+
+            <p>
+                <strong>Company:</strong>
+                Digital Innovations
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                Bangalore
+            </p>
+
+            <p>
+                <strong>Type:</strong>
+                Full Time
+            </p>
+
+            <button
+                class="apply-button"
+                onclick="applyJob('Frontend Developer', 'Digital Innovations')">
+                Apply
+            </button>
+
+        </div>
+
+
+        <!-- Data Analyst Intern -->
+        <div class="job-card">
+
+            <h2>📊 Data Analyst Intern</h2>
+
+            <p>
+                <strong>Company:</strong>
+                Data Works
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                Hyderabad
+            </p>
+
+            <p>
+                <strong>Type:</strong>
+                Internship
+            </p>
+
+            <button
+                class="apply-button"
+                onclick="applyJob('Data Analyst Intern', 'Data Works')">
+                Apply
+            </button>
+
+        </div>
+
+
+        <!-- Cloud Engineer -->
+        <div class="job-card">
+
+            <h2>☁️ Cloud Engineer</h2>
+
+            <p>
+                <strong>Company:</strong>
+                Cloud Technologies
+            </p>
+
+            <p>
+                <strong>Location:</strong>
+                Pune
+            </p>
+
+            <p>
+                <strong>Type:</strong>
+                Full Time
+            </p>
+
+            <button
+                class="apply-button"
+                onclick="applyJob('Cloud Engineer', 'Cloud Technologies')">
+                Apply
+            </button>
+
+        </div>
+
+
+        <!-- Back to Dashboard -->
+        <a href="/frontend/index.html" class="back-button">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <script>
+
+        function applyJob(jobName, companyName) {
+
+            // Get the success message
+            const message =
+                document.getElementById("applicationMessage");
+
+            // Show the message
+            message.textContent =
+                "Application submitted successfully!";
+
+            message.style.color = "green";
+            message.style.display = "block";
+
+            // Cancel previous timer if there is one
+            clearTimeout(window.applicationMessageTimer);
+
+            // Hide message after 5 seconds
+            window.applicationMessageTimer =
+                setTimeout(function () {
+
+                    message.textContent = "";
+                    message.style.display = "none";
+
+                }, 5000);
+
+
+            // Create application information
+            const application = {
+
+                job: jobName,
+
+                company: companyName,
+
+                appliedDate:
+                    new Date().toLocaleDateString(),
+
+                status: "Applied"
+            };
+
+
+            // Get existing applications
+            let applications =
+                JSON.parse(
+                    localStorage.getItem("applications")
+                ) || [];
+
+
+            // Add new application
+            applications.push(application);
+
+
+            // Save applications
+            localStorage.setItem(
+                "applications",
+                JSON.stringify(applications)
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>

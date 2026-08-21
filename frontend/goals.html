@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Goals - Student Career CRM</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main>
+
+    <h1>Career Goals</h1>
+
+    <p style="text-align: center;">
+        Set your career goals and track your progress.
+    </p>
+
+    <form id="goalsForm">
+
+        <div class="form-group">
+            <label for="careerGoal">Career Goal</label>
+
+            <input
+                type="text"
+                id="careerGoal"
+                placeholder="e.g. Become a Software Developer"
+                required
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="targetRole">Target Job Role</label>
+
+            <input
+                type="text"
+                id="targetRole"
+                placeholder="e.g. Frontend Developer"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="targetDate">Target Date</label>
+
+            <input
+                type="date"
+                id="targetDate"
+            >
+        </div>
+
+        <div class="form-group">
+            <label for="goalDescription">Goal Description</label>
+
+            <textarea
+                id="goalDescription"
+                placeholder="Describe your career goal..."
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="progress">Progress (%)</label>
+
+            <input
+                type="number"
+                id="progress"
+                min="0"
+                max="100"
+                placeholder="0"
+            >
+        </div>
+
+        <button type="submit">
+            Save Goal
+        </button>
+
+        <p id="goalMessage"></p>
+
+    </form>
+
+    <a href="index.html" class="back-button">
+        ← Back to Dashboard
+    </a>
+
+</main>
+
+
+<script>
+
+    const goalsForm = document.getElementById("goalsForm");
+    const goalMessage = document.getElementById("goalMessage");
+
+    // Load saved goal
+    window.onload = function () {
+
+        document.getElementById("careerGoal").value =
+            localStorage.getItem("careerGoal") || "";
+
+        document.getElementById("targetRole").value =
+            localStorage.getItem("targetRole") || "";
+
+        document.getElementById("targetDate").value =
+            localStorage.getItem("targetDate") || "";
+
+        document.getElementById("goalDescription").value =
+            localStorage.getItem("goalDescription") || "";
+
+        document.getElementById("progress").value =
+            localStorage.getItem("progress") || "";
+    };
+
+
+    // Save goal
+    goalsForm.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        localStorage.setItem(
+            "careerGoal",
+            document.getElementById("careerGoal").value
+        );
+
+        localStorage.setItem(
+            "targetRole",
+            document.getElementById("targetRole").value
+        );
+
+        localStorage.setItem(
+            "targetDate",
+            document.getElementById("targetDate").value
+        );
+
+        localStorage.setItem(
+            "goalDescription",
+            document.getElementById("goalDescription").value
+        );
+
+        localStorage.setItem(
+            "progress",
+            document.getElementById("progress").value
+        );
+
+        goalMessage.textContent =
+            "Career goal saved successfully!";
+
+        goalMessage.style.color = "green";
+        goalMessage.style.fontWeight = "bold";
+    });
+
+</script>
+
+</body>
+</html>

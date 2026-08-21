@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Applications - Student Career CRM</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main>
+
+    <h1>My Applications</h1>
+
+    <p style="text-align: center;">
+        Track your job and internship applications.
+    </p>
+
+
+    <div class="dashboard">
+
+        <!-- Application 1 -->
+        <div class="card">
+
+            <h3>💻 Software Developer Intern</h3>
+
+            <p>
+                <strong>Company:</strong> Tech Solutions
+            </p>
+
+            <p>
+                <strong>Applied Date:</strong> 21 August 2026
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span class="application-status">
+                    Applied
+                </span>
+            </p>
+
+            <button onclick="updateStatus(this)">
+                Update Status
+            </button>
+
+        </div>
+
+
+        <!-- Application 2 -->
+        <div class="card">
+
+            <h3>🌐 Frontend Developer</h3>
+
+            <p>
+                <strong>Company:</strong> Digital Innovations
+            </p>
+
+            <p>
+                <strong>Applied Date:</strong> 20 August 2026
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span class="application-status">
+                    Under Review
+                </span>
+            </p>
+
+            <button onclick="updateStatus(this)">
+                Update Status
+            </button>
+
+        </div>
+
+
+        <!-- Application 3 -->
+        <div class="card">
+
+            <h3>📊 Data Analyst Intern</h3>
+
+            <p>
+                <strong>Company:</strong> Data Works
+            </p>
+
+            <p>
+                <strong>Applied Date:</strong> 18 August 2026
+            </p>
+
+            <p>
+                <strong>Status:</strong>
+                <span class="application-status">
+                    Interview
+                </span>
+            </p>
+
+            <button onclick="updateStatus(this)">
+                Update Status
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div style="text-align: center; margin-top: 30px;">
+
+        <a href="/frontend/index.html" class="back-button">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+</main>
+
+
+<script>
+
+function updateStatus(button) {
+
+    const status = button
+        .parentElement
+        .querySelector(".application-status");
+
+    if (status.textContent.trim() === "Applied") {
+
+        status.textContent = "Under Review";
+
+    } else if (status.textContent.trim() === "Under Review") {
+
+        status.textContent = "Interview";
+
+    } else {
+
+        status.textContent = "Selected";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
