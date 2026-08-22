@@ -6,190 +6,947 @@
 
     <title>My Profile - Student Career CRM</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #e8f4ff, #f7fbff);
+            color: #26364a;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #1769aa;
+            margin-bottom: 8px;
+            font-size: 36px;
+        }
+
+        .header p {
+            color: #65758b;
+            font-size: 16px;
+        }
+
+        /* Profile photo */
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 80, 150, 0.12);
+            margin-bottom: 25px;
+        }
+
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 18px;
+            background: #edf6ff;
+        }
+
+        .photo-input {
+            display: none;
+        }
+
+        .photo-button {
+            display: inline-block;
+            background: #168bd3;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .photo-button:hover {
+            background: #0d72b4;
+        }
+
+        /* Completion */
+
+        .completion {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .completion-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .percentage {
+            color: #168bd3;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 15px;
+            background: #e5edf5;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #168bd3, #35b6e8);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        /* Sections */
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 80, 150, 0.10);
+        }
+
+        .section-title {
+            color: #1769aa;
+            font-size: 23px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e8f1f8;
+            padding-bottom: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd8e5;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.2s;
+            background: #fbfdff;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #168bd3;
+            box-shadow: 0 0 0 3px rgba(22, 139, 211, 0.12);
+            background: white;
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Buttons */
+
+        .button-area {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 14px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 6px;
+        }
+
+        .save-button {
+            background: #168bd3;
+            color: white;
+        }
+
+        .save-button:hover {
+            background: #0d72b4;
+        }
+
+        .reset-button {
+            background: #edf1f5;
+            color: #34495e;
+        }
+
+        .reset-button:hover {
+            background: #dce4eb;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 40px;
+            text-decoration: none;
+            background: #34495e;
+            color: white;
+            padding: 13px 23px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background: #263746;
+        }
+
+        #message {
+            text-align: center;
+            font-weight: bold;
+            min-height: 22px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .header h1 {
+                font-size: 29px;
+            }
+
+            .section,
+            .profile-card {
+                padding: 22px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<main>
+<div class="container">
 
-    <h1>My Profile</h1>
+    <!-- HEADER -->
 
-    <p style="text-align: center;">
-        View and update your personal information.
-    </p>
+    <div class="header">
+        <h1>👤 My Profile</h1>
+
+        <p>
+            Complete your profile to build your professional career presence.
+        </p>
+    </div>
+
+
+    <!-- PROFILE PHOTO + COMPLETION -->
+
+    <div class="profile-card">
+
+        <img
+            id="profilePhoto"
+            class="profile-photo"
+            src=""
+            alt="Profile Photo"
+        >
+
+        <label for="photoInput" class="photo-button">
+            📷 Choose Profile Photo
+        </label>
+
+        <input
+            type="file"
+            id="photoInput"
+            class="photo-input"
+            accept="image/*"
+        >
+
+
+        <div class="completion">
+
+            <div class="completion-header">
+
+                <span>
+                    📊 Profile Completion
+                </span>
+
+                <span
+                    id="completionPercentage"
+                    class="percentage"
+                >
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress-container">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
 
     <form id="profileForm">
 
-        <div class="form-row">
 
-            <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input
-                    type="text"
-                    id="fullName"
-                    placeholder="Enter your full name"
-                    required
-                >
+        <!-- PERSONAL INFORMATION -->
+
+        <div class="section">
+
+            <h2 class="section-title">
+                👤 Personal Information
+            </h2>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+
+                </div>
+
             </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    required
-                >
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="City, State"
+                    >
+
+                </div>
+
             </div>
 
         </div>
 
 
-        <div class="form-row">
+        <!-- ACADEMIC INFORMATION -->
 
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Enter your phone number"
-                >
+        <div class="section">
+
+            <h2 class="section-title">
+                🎓 Academic Information
+            </h2>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="college">
+                        College / University
+                    </label>
+
+                    <input
+                        type="text"
+                        id="college"
+                        placeholder="Enter your college"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="course">
+                        Course / Degree
+                    </label>
+
+                    <input
+                        type="text"
+                        id="course"
+                        placeholder="e.g. B.Tech Computer Science"
+                    >
+
+                </div>
+
             </div>
 
-            <div class="form-group">
-                <label for="college">College / University</label>
-                <input
-                    type="text"
-                    id="college"
-                    placeholder="Enter your college"
-                >
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="graduationYear">
+                        Graduation Year
+                    </label>
+
+                    <input
+                        type="number"
+                        id="graduationYear"
+                        placeholder="e.g. 2027"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="cgpa">
+                        CGPA / Percentage
+                    </label>
+
+                    <input
+                        type="text"
+                        id="cgpa"
+                        placeholder="e.g. 8.5 CGPA"
+                    >
+
+                </div>
+
             </div>
 
         </div>
 
 
-        <div class="form-group">
-            <label for="course">Course</label>
-            <input
-                type="text"
-                id="course"
-                placeholder="Enter your course"
+        <!-- PROFESSIONAL LINKS -->
+
+        <div class="section">
+
+            <h2 class="section-title">
+                🔗 Professional Links
+            </h2>
+
+
+            <div class="form-group">
+
+                <label for="linkedin">
+                    LinkedIn Profile
+                </label>
+
+                <input
+                    type="url"
+                    id="linkedin"
+                    placeholder="https://linkedin.com/in/yourname"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="github">
+                    GitHub Profile
+                </label>
+
+                <input
+                    type="url"
+                    id="github"
+                    placeholder="https://github.com/yourname"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="portfolio">
+                    Portfolio Website
+                </label>
+
+                <input
+                    type="url"
+                    id="portfolio"
+                    placeholder="https://yourportfolio.com"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT ME -->
+
+        <div class="section">
+
+            <h2 class="section-title">
+                📝 About Me
+            </h2>
+
+
+            <div class="form-group">
+
+                <label for="about">
+                    About Yourself
+                </label>
+
+                <textarea
+                    id="about"
+                    placeholder="Write a short introduction about yourself, your interests, goals and strengths..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="button-area">
+
+            <button
+                type="submit"
+                class="save-button"
             >
-        </div>
+                💾 Save Profile
+            </button>
 
 
-        <div class="form-group">
-            <label for="skills">Skills</label>
-            <input
-                type="text"
-                id="skills"
-                placeholder="e.g. HTML, CSS, JavaScript"
+            <button
+                type="button"
+                class="reset-button"
+                id="resetButton"
             >
+                🔄 Reset
+            </button>
+
         </div>
 
-
-        <div class="form-group">
-            <label for="about">About Me</label>
-            <textarea
-                id="about"
-                placeholder="Write something about yourself"
-            ></textarea>
-        </div>
-
-
-        <button type="submit">
-            Save Profile
-        </button>
 
         <p id="message"></p>
 
     </form>
 
 
-    <a href="index.html" class="back-button">
+    <!-- BACK -->
+
+    <a
+        href="index.html"
+        class="back-button"
+    >
         ← Back to Dashboard
     </a>
 
-</main>
+</div>
 
 
 <script>
 
-    const profileForm = document.getElementById("profileForm");
-    const message = document.getElementById("message");
+    /* ==========================================
+       PROFILE FIELDS
+    ========================================== */
 
-    // Load saved profile information
-    window.onload = function () {
-
-        document.getElementById("fullName").value =
-            localStorage.getItem("fullName") || "";
-
-        document.getElementById("email").value =
-            localStorage.getItem("email") || "";
-
-        document.getElementById("phone").value =
-            localStorage.getItem("phone") || "";
-
-        document.getElementById("college").value =
-            localStorage.getItem("college") || "";
-
-        document.getElementById("course").value =
-            localStorage.getItem("course") || "";
-
-        document.getElementById("skills").value =
-            localStorage.getItem("skills") || "";
-
-        document.getElementById("about").value =
-            localStorage.getItem("about") || "";
-    };
+    const fields = [
+        "fullName",
+        "email",
+        "phone",
+        "location",
+        "college",
+        "course",
+        "graduationYear",
+        "cgpa",
+        "linkedin",
+        "github",
+        "portfolio",
+        "about"
+    ];
 
 
-    // Save profile information
-    profileForm.addEventListener("submit", function(event) {
+    /* ==========================================
+       DEFAULT PROFILE IMAGE
+    ========================================== */
 
-        event.preventDefault();
+    const defaultPhoto =
+        "data:image/svg+xml;charset=UTF-8," +
+        encodeURIComponent(`
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 width="130"
+                 height="130"
+                 viewBox="0 0 130 130">
 
-        localStorage.setItem(
-            "fullName",
-            document.getElementById("fullName").value
-        );
+                <circle
+                    cx="65"
+                    cy="65"
+                    r="65"
+                    fill="#edf6ff"
+                />
 
-        localStorage.setItem(
-            "email",
-            document.getElementById("email").value
-        );
+                <circle
+                    cx="65"
+                    cy="48"
+                    r="22"
+                    fill="#6b87a5"
+                />
 
-        localStorage.setItem(
-            "phone",
-            document.getElementById("phone").value
-        );
+                <path
+                    d="M25 112
+                       C30 84 45 72 65 72
+                       C85 72 100 84 105 112"
+                    fill="#6b87a5"
+                />
 
-        localStorage.setItem(
-            "college",
-            document.getElementById("college").value
-        );
+            </svg>
+        `);
 
-        localStorage.setItem(
-            "course",
-            document.getElementById("course").value
-        );
 
-        localStorage.setItem(
-            "skills",
-            document.getElementById("skills").value
-        );
+    const profilePhoto =
+        document.getElementById("profilePhoto");
 
-        localStorage.setItem(
-            "about",
-            document.getElementById("about").value
-        );
+    const photoInput =
+        document.getElementById("photoInput");
 
-        message.textContent = "Profile saved successfully!";
 
-        message.style.color = "green";
-        message.style.fontWeight = "bold";
+    profilePhoto.src = defaultPhoto;
+
+
+    /* ==========================================
+       SAVE PROFILE
+    ========================================== */
+
+    document
+        .getElementById("profileForm")
+        .addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            fields.forEach(function(field) {
+
+                const element =
+                    document.getElementById(field);
+
+                localStorage.setItem(
+                    "profile_" + field,
+                    element.value.trim()
+                );
+
+            });
+
+
+            updateCompletion();
+
+
+            const message =
+                document.getElementById("message");
+
+            message.textContent =
+                "✅ Profile saved successfully!";
+
+            message.style.color = "#168b4d";
+
+
+            setTimeout(function() {
+
+                message.textContent = "";
+
+            }, 3000);
+
+        });
+
+
+    /* ==========================================
+       LOAD PROFILE
+    ========================================== */
+
+    function loadProfile() {
+
+        fields.forEach(function(field) {
+
+            const savedValue =
+                localStorage.getItem(
+                    "profile_" + field
+                );
+
+            if (savedValue !== null) {
+
+                document.getElementById(field).value =
+                    savedValue;
+
+            }
+
+        });
+
+
+        const savedPhoto =
+            localStorage.getItem("profile_photo");
+
+        if (savedPhoto) {
+
+            profilePhoto.src = savedPhoto;
+
+        }
+
+
+        updateCompletion();
+
+    }
+
+
+    /* ==========================================
+       UPDATE PROFILE COMPLETION
+    ========================================== */
+
+    function updateCompletion() {
+
+        let completed = 0;
+
+
+        fields.forEach(function(field) {
+
+            const element =
+                document.getElementById(field);
+
+            if (
+                element &&
+                element.value.trim() !== ""
+            ) {
+
+                completed++;
+
+            }
+
+        });
+
+
+        const percentage =
+            Math.round(
+                (completed / fields.length) * 100
+            );
+
+
+        document
+            .getElementById("completionPercentage")
+            .textContent =
+            percentage + "%";
+
+
+        document
+            .getElementById("progressBar")
+            .style.width =
+            percentage + "%";
+
+    }
+
+
+    /* ==========================================
+       UPDATE COMPLETION WHILE TYPING
+    ========================================== */
+
+    fields.forEach(function(field) {
+
+        document
+            .getElementById(field)
+            .addEventListener(
+                "input",
+                updateCompletion
+            );
+
     });
+
+
+    /* ==========================================
+       PROFILE PHOTO
+    ========================================== */
+
+    photoInput.addEventListener(
+        "change",
+        function(event) {
+
+            const file =
+                event.target.files[0];
+
+            if (!file) {
+                return;
+            }
+
+
+            const reader =
+                new FileReader();
+
+
+            reader.onload =
+                function(e) {
+
+                    profilePhoto.src =
+                        e.target.result;
+
+
+                    localStorage.setItem(
+                        "profile_photo",
+                        e.target.result
+                    );
+
+
+                    const message =
+                        document.getElementById(
+                            "message"
+                        );
+
+                    message.textContent =
+                        "📷 Profile photo updated!";
+
+                    message.style.color =
+                        "#168b4d";
+
+                };
+
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+
+    /* ==========================================
+       RESET PROFILE
+    ========================================== */
+
+    document
+        .getElementById("resetButton")
+        .addEventListener(
+            "click",
+            function() {
+
+                const confirmed =
+                    confirm(
+                        "Are you sure you want to reset your profile?"
+                    );
+
+
+                if (!confirmed) {
+                    return;
+                }
+
+
+                fields.forEach(function(field) {
+
+                    localStorage.removeItem(
+                        "profile_" + field
+                    );
+
+                    document.getElementById(
+                        field
+                    ).value = "";
+
+                });
+
+
+                localStorage.removeItem(
+                    "profile_photo"
+                );
+
+
+                profilePhoto.src =
+                    defaultPhoto;
+
+
+                photoInput.value = "";
+
+
+                updateCompletion();
+
+
+                const message =
+                    document.getElementById(
+                        "message"
+                    );
+
+                message.textContent =
+                    "Profile has been reset.";
+
+                message.style.color =
+                    "#168b4d";
+
+            }
+        );
+
+
+    /* ==========================================
+       INITIAL LOAD
+    ========================================== */
+
+    window.addEventListener(
+        "load",
+        loadProfile
+    );
 
 </script>
 

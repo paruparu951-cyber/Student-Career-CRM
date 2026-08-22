@@ -1,121 +1,260 @@
-/* =========================
-   Student Career CRM
-   Main Styles
-   ========================= */
+/* =========================================================
+   STUDENT CAREER CRM
+   Modern Frontend Design
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #eef5ff;
-    color: #1f2937;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #eef6ff, #f7f3ff);
+    color: #24324a;
+    line-height: 1.6;
+    min-height: 100vh;
 }
 
-/* Main container */
+
+/* =========================================================
+   COMMON HEADER
+   ========================================================= */
+
+header {
+    background: linear-gradient(135deg, #1565c0, #6a4bc3);
+    color: white;
+    text-align: center;
+    padding: 45px 20px;
+    box-shadow: 0 8px 25px rgba(21, 101, 192, 0.22);
+}
+
+header h1 {
+    margin: 0 0 8px;
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    margin: 0;
+    font-size: 17px;
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
 main {
     width: 90%;
-    max-width: 1100px;
-    margin: 40px auto;
+    max-width: 1150px;
+    margin: 45px auto;
 }
 
-/* Headings */
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
 h1 {
+    color: #1556a8;
     text-align: center;
-    color: #1565c0;
-    font-size: 42px;
-    margin-bottom: 10px;
+    font-size: 40px;
+    margin-bottom: 25px;
 }
 
 h2 {
+    color: #315a9e;
     text-align: center;
-    color: #1e3a8a;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 h3 {
-    color: #1565c0;
-    font-size: 24px;
+    color: #1556a8;
+    font-size: 22px;
     margin-top: 0;
 }
 
-/* Paragraphs */
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
+
 p {
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 16px;
+    color: #5c6b82;
 }
 
-/* Dashboard */
+
+/* =========================================================
+   COMMON DASHBOARD
+   ========================================================= */
+
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 25px;
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
-/* Cards */
+
+/* =========================================================
+   COMMON CARDS
+   ========================================================= */
+
 .card {
-    background: white;
+    background: rgba(255, 255, 255, 0.95);
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-    border: 1px solid #dbeafe;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(50, 80, 120, 0.12);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #1976d2, #7b5cff);
 }
 
 .card:hover {
-    transform: translateY(-3px);
-    transition: 0.2s;
+    transform: translateY(-5px);
+    box-shadow: 0 18px 38px rgba(50, 80, 120, 0.18);
+    border-color: rgba(25, 118, 210, 0.18);
 }
 
-/* Buttons */
+.card h2 {
+    color: #315a9e;
+    margin-top: 0;
+}
+
+.card h3 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 button {
-    background: #1976d2;
+    background: linear-gradient(135deg, #1976d2, #1565c0);
     color: white;
     border: none;
     padding: 12px 22px;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-    margin-top: 10px;
+    transition: all 0.25s ease;
+    box-shadow: 0 5px 14px rgba(25, 118, 210, 0.22);
 }
 
 button:hover {
-    background: #1259a5;
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #1565c0, #104f9e);
+    box-shadow: 0 8px 18px rgba(25, 118, 210, 0.3);
 }
 
-/* Profile form */
+button:active {
+    transform: translateY(0);
+}
+
+
+/* Links that look like buttons */
+
+a.button {
+    display: inline-block;
+    background: linear-gradient(135deg, #1976d2, #1565c0);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+a.button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
 form {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(50, 80, 120, 0.12);
     max-width: 900px;
     margin: 30px auto;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
 }
 
 label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 7px;
-    color: #374151;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #344563;
 }
 
 input,
 textarea,
 select {
     width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd5e1;
-    border-radius: 8px;
-    font-size: 16px;
+    padding: 13px 15px;
+    border: 1px solid #d3ddea;
+    border-radius: 10px;
+    background: #fbfdff;
+    color: #25344d;
+    font-size: 15px;
     font-family: inherit;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #9aa8bb;
 }
 
 input:focus,
@@ -123,7 +262,8 @@ textarea:focus,
 select:focus {
     outline: none;
     border-color: #1976d2;
-    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.15);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(25, 118, 210, 0.12);
 }
 
 textarea {
@@ -131,50 +271,1512 @@ textarea {
     resize: vertical;
 }
 
-/* Two-column form layout */
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+
+/* =========================================================
+   JOBS / INTERNSHIPS
+   ========================================================= */
+
+.job-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 28px;
+    margin-bottom: 22px;
+    border-radius: 18px;
+    border-left: 5px solid #1976d2;
+    box-shadow: 0 8px 25px rgba(50, 80, 120, 0.11);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-/* Back button */
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 32px rgba(50, 80, 120, 0.16);
+}
+
+.job-card h3 {
+    margin-bottom: 15px;
+}
+
+.job-card p {
+    margin: 8px 0;
+}
+
+.job-card strong {
+    color: #344563;
+}
+
+
+/* =========================================================
+   APPLICATION MESSAGE
+   ========================================================= */
+
+.application-message {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: linear-gradient(135deg, #1b8f55, #28a968);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(27, 143, 85, 0.3);
+    animation: messageSlideDown 0.35s ease;
+}
+
+@keyframes messageSlideDown {
+
+    from {
+        opacity: 0;
+        transform: translate(-50%, -20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
 .back-button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 20px;
-    background: #64748b;
+    margin-top: 25px;
+    padding: 12px 22px;
+    background: linear-gradient(135deg, #64748b, #475569);
     color: white;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: all 0.25s ease;
 }
 
 .back-button:hover {
-    background: #475569;
+    background: linear-gradient(135deg, #475569, #334155);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 16px rgba(71, 85, 105, 0.25);
 }
 
-/* Responsive design */
+
+/* =========================================================
+   TABLES
+   ========================================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(50, 80, 120, 0.1);
+}
+
+th {
+    background: linear-gradient(135deg, #1976d2, #315a9e);
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #edf1f6;
+    color: #526177;
+}
+
+tr:hover td {
+    background: #f5f9ff;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+   ========================================================= */
+
+.status {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status-success {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #a16207;
+}
+
+.status-rejected {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill {
+    background: #e8f2ff;
+    color: #1556a8;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background: #e5eaf1;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 12px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #1976d2, #7b5cff);
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+
+/* =========================================================
+   SIMPLE SECTIONS
+   ========================================================= */
+
+.section {
+    background: rgba(255, 255, 255, 0.92);
+    padding: 30px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(50, 80, 120, 0.1);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    color: #718096;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MODERN DASHBOARD
+   ========================================================= */
+
+
+/* Dashboard body */
+
+body.dashboard-page {
+    background:
+        linear-gradient(
+            135deg,
+            #f5f7ff,
+            #eef6ff
+        );
+}
+
+
+/* Main dashboard wrapper */
+
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   DASHBOARD SIDEBAR
+   ========================================================= */
+
+.dashboard-sidebar {
+
+    width: 245px;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-right: 1px solid #e5e9f2;
+
+    padding: 28px 18px;
+
+    position: fixed;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    overflow-y: auto;
+
+    z-index: 100;
+
+}
+
+
+.dashboard-logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        0 10px 28px;
+
+    color: #263a76;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+.dashboard-logo-icon {
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #625de8,
+            #168bd4
+        );
+
+    color: white;
+
+    border-radius: 13px;
+
+    font-size: 21px;
+
+    box-shadow:
+        0 7px 16px
+        rgba(91, 91, 234, 0.22);
+
+}
+
+
+.dashboard-nav {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+.dashboard-nav a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        12px 13px;
+
+    border-radius: 10px;
+
+    color: #5c687d;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.dashboard-nav a:hover {
+
+    background: #f0f2ff;
+
+    color: #514ddd;
+
+    transform:
+        translateX(2px);
+
+}
+
+
+.dashboard-nav a.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #eeeeff,
+            #f1f5ff
+        );
+
+    color: #514ddd;
+
+    font-weight: 700;
+
+}
+
+
+.dashboard-nav-icon {
+
+    width: 25px;
+
+    text-align: center;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+   ========================================================= */
+
+.dashboard-content {
+
+    margin-left: 245px;
+
+    width:
+        calc(100% - 245px);
+
+    padding: 32px;
+
+}
+
+
+.dashboard-inner {
+
+    max-width: 1250px;
+
+    margin: auto;
+
+}
+
+
+/* =========================================================
+   DASHBOARD TOP BAR
+   ========================================================= */
+
+.dashboard-topbar {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+}
+
+
+.dashboard-welcome h1 {
+
+    margin: 0;
+
+    color: #18243b;
+
+    text-align: left;
+
+    font-size: 30px;
+
+}
+
+
+.dashboard-welcome p {
+
+    margin:
+        7px 0 0;
+
+    color: #68748a;
+
+    font-size: 14px;
+
+}
+
+
+.dashboard-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: white;
+
+    padding:
+        7px 14px 7px 7px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(50, 70, 120, 0.08);
+
+}
+
+
+.dashboard-avatar {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d9f7ec,
+            #bcebdc
+        );
+
+    border-radius: 50%;
+
+    font-size: 19px;
+
+}
+
+
+.dashboard-user-name {
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #39465d;
+
+}
+
+
+/* =========================================================
+   DASHBOARD HERO
+   ========================================================= */
+
+.dashboard-hero {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 185px;
+
+    padding:
+        30px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            110deg,
+            #e5e5ff,
+            #edf3ff 55%,
+            #dff4ff
+        );
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(63, 80, 150, 0.08);
+
+    margin-bottom: 25px;
+
+}
+
+
+.dashboard-hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    right: -120px;
+    top: -140px;
+
+    background:
+        rgba(255, 255, 255, 0.38);
+
+    border-radius: 50%;
+
+}
+
+
+.dashboard-hero-content {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 27px;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+.dashboard-progress-circle {
+
+    width: 120px;
+    height: 120px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        conic-gradient(
+            #5b5bea 0deg,
+            #5b5bea 270deg,
+            #dfe3f0 270deg,
+            #dfe3f0 360deg
+        );
+
+    flex-shrink: 0;
+
+}
+
+
+.dashboard-progress-inner {
+
+    width: 88px;
+    height: 88px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #303d75;
+
+}
+
+
+.dashboard-hero-text h2 {
+
+    margin:
+        0 0 7px;
+
+    text-align: left;
+
+    color: #27355c;
+
+    font-size: 22px;
+
+}
+
+
+.dashboard-hero-text p {
+
+    margin:
+        0 0 12px;
+
+    max-width: 470px;
+
+    color: #59657b;
+
+    font-size: 14px;
+
+}
+
+
+.dashboard-hero-link {
+
+    color: #514ddd;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+}
+
+
+.dashboard-hero-icon {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin-right: 50px;
+
+    font-size: 70px;
+
+    opacity: 0.75;
+
+}
+
+
+/* =========================================================
+   DASHBOARD STATISTICS
+   ========================================================= */
+
+.dashboard-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 16px;
+
+    margin-bottom: 28px;
+
+}
+
+
+.dashboard-stat {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 6px 20px
+        rgba(50, 70, 120, 0.07);
+
+}
+
+
+.dashboard-stat-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #edf3ff;
+
+    font-size: 21px;
+
+    flex-shrink: 0;
+
+}
+
+
+.dashboard-stat:nth-child(2)
+.dashboard-stat-icon {
+
+    background: #e5f8ed;
+
+}
+
+
+.dashboard-stat:nth-child(3)
+.dashboard-stat-icon {
+
+    background: #f1e8ff;
+
+}
+
+
+.dashboard-stat:nth-child(4)
+.dashboard-stat-icon {
+
+    background: #fff0d9;
+
+}
+
+
+.dashboard-stat-number {
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    color: #17233c;
+
+}
+
+
+.dashboard-stat-label {
+
+    margin-top: 2px;
+
+    font-size: 12px;
+
+    color: #68748a;
+
+}
+
+
+/* =========================================================
+   DASHBOARD SECTION TITLE
+   ========================================================= */
+
+.dashboard-section-title {
+
+    margin:
+        25px 0 15px;
+
+    color: #26344f;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   DASHBOARD FEATURE GRID
+   ========================================================= */
+
+.dashboard-features {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+}
+
+
+.dashboard-feature-link {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+
+.dashboard-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    min-height: 100px;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 6px 20px
+        rgba(50, 70, 120, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.dashboard-feature:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(50, 70, 120, 0.13);
+
+}
+
+
+.dashboard-feature-icon {
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #edf3ff;
+
+    border-radius: 15px;
+
+    font-size: 23px;
+
+    flex-shrink: 0;
+
+}
+
+
+.dashboard-feature-content {
+
+    flex: 1;
+
+}
+
+
+.dashboard-feature-content h3 {
+
+    margin:
+        0 0 4px;
+
+    color: #26344f;
+
+    font-size: 15px;
+
+}
+
+
+.dashboard-feature-content p {
+
+    margin: 0;
+
+    color: #7a8497;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+}
+
+
+.dashboard-feature-arrow {
+
+    color: #5b5bea;
+
+    font-size: 20px;
+
+}
+
+
+/* =========================================================
+   DASHBOARD BOTTOM GRID
+   ========================================================= */
+
+.dashboard-bottom {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+}
+
+
+.dashboard-bottom-card {
+
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 6px 20px
+        rgba(50, 70, 120, 0.07);
+
+}
+
+
+.dashboard-bottom-card h2 {
+
+    text-align: left;
+
+    margin:
+        0 0 20px;
+
+    color: #26344f;
+
+    font-size: 18px;
+
+}
+
+
+/* =========================================================
+   DASHBOARD PROGRESS
+   ========================================================= */
+
+.dashboard-progress-item {
+
+    margin-bottom: 20px;
+
+}
+
+
+.dashboard-progress-label {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
+
+    color: #5a667c;
+
+    font-size: 13px;
+
+}
+
+
+.dashboard-progress-label strong {
+
+    color: #27344c;
+
+}
+
+
+.dashboard-progress-track {
+
+    width: 100%;
+
+    height: 9px;
+
+    background: #edf0f6;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+.dashboard-progress-fill {
+
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #5b5bea,
+            #7373ef
+        );
+
+    transition:
+        width 0.5s ease;
+
+}
+
+
+.dashboard-goal-fill {
+
+    background:
+        linear-gradient(
+            90deg,
+            #38b879,
+            #55c98e
+        );
+
+}
+
+
+/* =========================================================
+   DASHBOARD INTERVIEW RESULT
+   ========================================================= */
+
+.dashboard-result-box{ 
+    background:#f7f8ff;
+padding: 17px;
+
+    border-radius: 13px;
+
+}
+
+
+.dashboard-result-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 8px 0;
+
+    border-bottom: 1px solid #e7e9f2;
+
+    font-size: 13px;
+
+}
+
+
+.dashboard-result-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.dashboard-result-score {
+
+    margin: 8px 0;
+
+    color: #5755dd;
+
+    font-size: 31px;
+
+    font-weight: 700;
+
+}
+
+
+.dashboard-no-result {
+
+    color: #7c8597;
+
+    font-size: 14px;
+
+    font-style: italic;
+
+}
+
+
+/* =========================================================
+   DASHBOARD FOOTER
+   ========================================================= */
+
+.dashboard-footer {
+
+    text-align: center;
+
+    padding: 30px 0 10px;
+
+    color: #8992a4;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================================
+   DASHBOARD RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .dashboard-sidebar {
+
+        width: 210px;
+
+    }
+
+    .dashboard-content {
+
+        margin-left: 210px;
+
+        width: calc(100% - 210px);
+
+        padding: 22px;
+
+    }
+
+    .dashboard-stats {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .dashboard-features {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE DASHBOARD
+   ========================================================= */
+
 @media (max-width: 700px) {
 
-    .dashboard {
-        grid-template-columns: 1fr;
+    .dashboard-layout {
+
+        display: block;
+
     }
 
-    .form-row {
-        grid-template-columns: 1fr;
+    .dashboard-sidebar {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom: 1px solid #e5e9f2;
+
+        padding: 18px;
+
     }
 
-    h1 {
+    .dashboard-logo {
+
+        padding-bottom: 18px;
+
+    }
+
+    .dashboard-nav {
+
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .dashboard-content {
+
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 16px;
+
+    }
+
+    .dashboard-topbar {
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+    .dashboard-user {
+
+        display: none;
+
+    }
+
+    .dashboard-hero {
+
+        padding: 24px;
+
+    }
+
+    .dashboard-hero-content {
+
+        gap: 17px;
+
+    }
+
+    .dashboard-progress-circle {
+
+        width: 90px;
+        height: 90px;
+
+    }
+
+    .dashboard-progress-inner {
+
+        width: 67px;
+        height: 67px;
+
+        font-size: 19px;
+
+    }
+
+    .dashboard-hero-icon {
+
+        display: none;
+
+    }
+
+    .dashboard-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .dashboard-features {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .dashboard-bottom {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    .dashboard-welcome h1 {
+
+        font-size: 25px;
+
+    }
+
+    .dashboard-welcome p {
+
+        font-size: 13px;
+
+    }
+
+    .dashboard-hero-text h2 {
+
+        font-size: 18px;
+
+    }
+
+    .dashboard-hero-text p {
+
+        font-size: 13px;
+
+    }
+
+    .dashboard-progress-circle {
+
+        width: 75px;
+        height: 75px;
+
+    }
+
+    .dashboard-progress-inner {
+
+        width: 55px;
+        height: 55px;
+
+        font-size: 16px;
+
+    }
+
+    .dashboard-nav {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .dashboard-stat {
+
+        padding: 17px;
+
+    }
+
+}
+
+
+/* =========================================================
+   GENERAL RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    header {
+
+        padding: 35px 15px;
+
+    }
+
+    header h1 {
+
         font-size: 32px;
+
     }
 
     main {
-        width: 94%;
-        margin: 20px auto;
+
+        width: 92%;
+
+        margin: 30px auto;
+
     }
 
-    .card,
-    form {
-        padding: 20px;
+    h1 {
+
+        font-size: 32px;
+
     }
+
+    .dashboard {
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+
+    }
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .card {
+
+        padding: 25px;
+
+    }
+
+    form {
+
+        padding: 25px;
+
+    }
+
+}
+
+
+/* =========================================================
+   SMALL SCREEN
+   ========================================================= */
+
+@media (max-width: 500px) {
+
+    header h1 {
+
+        font-size: 27px;
+
+    }
+
+    header p {
+
+        font-size: 15px;
+
+    }
+
+    main {
+
+        width: 94%;
+
+        margin: 25px auto;
+
+    }
+
+    h1 {
+
+        font-size: 28px;
+
+    }
+
+    h3 {
+
+        font-size: 20px;
+
+    }
+
+    .card {
+
+        padding: 22px;
+
+        border-radius: 16px;
+
+    }
+
+    button,
+    a.button,
+    .back-button {
+
+        width: 100%;
+
+        text-align: center;
+
+    }
+
+    .job-card {
+
+        padding: 22px;
+
+    }
+
+    form {
+
+        padding: 20px;
+
+    }
+
+    .application-message {
+
+        width: 90%;
+
+        text-align: center;
+
+    }
+
 }

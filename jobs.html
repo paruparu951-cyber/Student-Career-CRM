@@ -8,256 +8,578 @@
     <title>Jobs & Internships - Student Career CRM</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f4f8fc;
-            color: #222;
+
+        * {
+            box-sizing: border-box;
         }
 
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef7ff, #f8fbff);
+            color: #263238;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
         header {
-            background-color: #0d6efd;
+            background: linear-gradient(135deg, #1769aa, #2196f3);
             color: white;
             text-align: center;
-            padding: 25px;
+            padding: 55px 20px;
+            box-shadow: 0 5px 20px rgba(0, 80, 150, 0.18);
+        }
+
+        header .icon {
+            font-size: 45px;
+            margin-bottom: 10px;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 32px;
+            margin: 0 0 10px;
+            font-size: 40px;
         }
 
         header p {
-            margin-top: 10px;
+            margin: 0;
+            font-size: 17px;
+            opacity: 0.95;
         }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
 
         .container {
-            width: 85%;
-            max-width: 1000px;
-            margin: 30px auto;
+            width: 90%;
+            max-width: 1050px;
+            margin: 40px auto;
         }
 
-        /* Success message at the top */
+
+        /* =========================
+           APPLICATION MESSAGE
+        ========================= */
+
         #applicationMessage {
             text-align: center;
             font-weight: bold;
-            font-size: 18px;
-            color: green;
-            margin: 15px 0 25px 0;
+            font-size: 17px;
+            color: #159447;
+            margin: 0 auto 25px;
             min-height: 25px;
-            display: none;
         }
+
+
+        /* =========================
+           JOB CARD
+        ========================= */
 
         .job-card {
-            background-color: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 30px;
+            margin-bottom: 22px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(0, 80, 150, 0.10);
+            border: 1px solid #edf3f8;
+            transition: 0.3s ease;
         }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0, 80, 150, 0.15);
+        }
+
+
+        /* =========================
+           JOB TITLE
+        ========================= */
 
         .job-card h2 {
-            color: #0d6efd;
+            color: #1769aa;
             margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 23px;
         }
 
-        .job-card p {
-            margin: 10px 0;
+
+        /* =========================
+           JOB DETAILS
+        ========================= */
+
+        .job-details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
         }
+
+        .detail-box {
+            background: #f5faff;
+            padding: 14px;
+            border-radius: 10px;
+        }
+
+        .detail-label {
+            display: block;
+            font-size: 13px;
+            color: #78909c;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-weight: bold;
+            color: #37474f;
+        }
+
+
+        /* =========================
+           APPLY BUTTON
+        ========================= */
 
         .apply-button {
-            background-color: #0d6efd;
+            width: 100%;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 13px 20px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 15px;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
         .apply-button:hover {
-            background-color: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(33, 150, 243, 0.25);
         }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
 
         .back-button {
             display: block;
-            text-align: center;
-            margin: 30px auto;
-            color: #0d6efd;
+            width: fit-content;
+            margin: 35px auto 50px;
+            padding: 13px 25px;
+            background: white;
+            color: #1769aa;
             text-decoration: none;
+            border-radius: 10px;
             font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 80, 150, 0.10);
+            transition: 0.3s;
         }
+
+        .back-button:hover {
+            transform: translateY(-2px);
+            background: #eef7ff;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .container {
+                width: 92%;
+                margin-top: 25px;
+            }
+
+            .job-card {
+                padding: 22px;
+            }
+
+            .job-details {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
     <header>
-        <h1>Jobs & Internships</h1>
-        <p>Explore job and internship opportunities.</p>
+
+        <div class="icon">
+            💼
+        </div>
+
+        <h1>
+            Jobs & Internships
+        </h1>
+
+        <p>
+            Discover opportunities and take the next step in your career.
+        </p>
+
     </header>
 
 
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
     <div class="container">
 
+
         <!-- Application Success Message -->
+
         <p id="applicationMessage"></p>
 
 
-        <!-- Software Developer Intern -->
+        <!-- =========================
+             JOB 1
+        ========================= -->
+
         <div class="job-card">
 
-            <h2>💻 Software Developer Intern</h2>
+            <h2>
+                💻 Software Developer Intern
+            </h2>
 
-            <p>
-                <strong>Company:</strong>
-                Tech Solutions
-            </p>
+            <div class="job-details">
 
-            <p>
-                <strong>Location:</strong>
-                Chennai
-            </p>
+                <div class="detail-box">
 
-            <p>
-                <strong>Type:</strong>
-                Internship
-            </p>
+                    <span class="detail-label">
+                        Company
+                    </span>
+
+                    <span class="detail-value">
+                        Tech Solutions
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Location
+                    </span>
+
+                    <span class="detail-value">
+                        Chennai
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Type
+                    </span>
+
+                    <span class="detail-value">
+                        Internship
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <button
                 class="apply-button"
-                onclick="applyJob('Software Developer Intern', 'Tech Solutions')">
-                Apply
+                onclick="applyJob(
+                    'Software Developer Intern',
+                    'Tech Solutions'
+                )">
+
+                Apply for this position →
+
             </button>
 
         </div>
 
 
-        <!-- Frontend Developer -->
+        <!-- =========================
+             JOB 2
+        ========================= -->
+
         <div class="job-card">
 
-            <h2>🌐 Frontend Developer</h2>
+            <h2>
+                🌐 Frontend Developer
+            </h2>
 
-            <p>
-                <strong>Company:</strong>
-                Digital Innovations
-            </p>
+            <div class="job-details">
 
-            <p>
-                <strong>Location:</strong>
-                Bangalore
-            </p>
+                <div class="detail-box">
 
-            <p>
-                <strong>Type:</strong>
-                Full Time
-            </p>
+                    <span class="detail-label">
+                        Company
+                    </span>
+
+                    <span class="detail-value">
+                        Digital Innovations
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Location
+                    </span>
+
+                    <span class="detail-value">
+                        Bangalore
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Type
+                    </span>
+
+                    <span class="detail-value">
+                        Full Time
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <button
                 class="apply-button"
-                onclick="applyJob('Frontend Developer', 'Digital Innovations')">
-                Apply
+                onclick="applyJob(
+                    'Frontend Developer',
+                    'Digital Innovations'
+                )">
+
+                Apply for this position →
+
             </button>
 
         </div>
 
 
-        <!-- Data Analyst Intern -->
+        <!-- =========================
+             JOB 3
+        ========================= -->
+
         <div class="job-card">
 
-            <h2>📊 Data Analyst Intern</h2>
+            <h2>
+                📊 Data Analyst Intern
+            </h2>
 
-            <p>
-                <strong>Company:</strong>
-                Data Works
-            </p>
+            <div class="job-details">
 
-            <p>
-                <strong>Location:</strong>
-                Hyderabad
-            </p>
+                <div class="detail-box">
 
-            <p>
-                <strong>Type:</strong>
-                Internship
-            </p>
+                    <span class="detail-label">
+                        Company
+                    </span>
+
+                    <span class="detail-value">
+                        Data Works
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Location
+                    </span>
+
+                    <span class="detail-value">
+                        Hyderabad
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Type
+                    </span>
+
+                    <span class="detail-value">
+                        Internship
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <button
                 class="apply-button"
-                onclick="applyJob('Data Analyst Intern', 'Data Works')">
-                Apply
+                onclick="applyJob(
+                    'Data Analyst Intern',
+                    'Data Works'
+                )">
+
+                Apply for this position →
+
             </button>
 
         </div>
 
 
-        <!-- Cloud Engineer -->
+        <!-- =========================
+             JOB 4
+        ========================= -->
+
         <div class="job-card">
 
-            <h2>☁️ Cloud Engineer</h2>
+            <h2>
+                ☁️ Cloud Engineer
+            </h2>
 
-            <p>
-                <strong>Company:</strong>
-                Cloud Technologies
-            </p>
+            <div class="job-details">
 
-            <p>
-                <strong>Location:</strong>
-                Pune
-            </p>
+                <div class="detail-box">
 
-            <p>
-                <strong>Type:</strong>
-                Full Time
-            </p>
+                    <span class="detail-label">
+                        Company
+                    </span>
+
+                    <span class="detail-value">
+                        Cloud Technologies
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Location
+                    </span>
+
+                    <span class="detail-value">
+                        Pune
+                    </span>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-label">
+                        Type
+                    </span>
+
+                    <span class="detail-value">
+                        Full Time
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <button
                 class="apply-button"
-                onclick="applyJob('Cloud Engineer', 'Cloud Technologies')">
-                Apply
+                onclick="applyJob(
+                    'Cloud Engineer',
+                    'Cloud Technologies'
+                )">
+
+                Apply for this position →
+
             </button>
 
         </div>
 
 
-        <!-- Back to Dashboard -->
-        <a href="/frontend/index.html" class="back-button">
+        <!-- =========================
+             BACK TO DASHBOARD
+        ========================= -->
+
+        <a
+            href="/frontend/index.html"
+            class="back-button">
+
             ← Back to Dashboard
+
         </a>
+
 
     </div>
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
     <script>
 
         function applyJob(jobName, companyName) {
 
-            // Get the success message
             const message =
-                document.getElementById("applicationMessage");
+                document.getElementById(
+                    "applicationMessage"
+                );
 
-            // Show the message
+
+            /* Show success message */
+
             message.textContent =
-                "Application submitted successfully!";
+                "✅ Application submitted successfully!";
 
-            message.style.color = "green";
-            message.style.display = "block";
+            message.style.display =
+                "block";
 
-            // Cancel previous timer if there is one
-            clearTimeout(window.applicationMessageTimer);
 
-            // Hide message after 5 seconds
+            /* Clear previous timer */
+
+            clearTimeout(
+                window.applicationMessageTimer
+            );
+
+
+            /* Hide message after 5 seconds */
+
             window.applicationMessageTimer =
                 setTimeout(function () {
 
                     message.textContent = "";
-                    message.style.display = "none";
 
                 }, 5000);
 
 
-            // Create application information
+            /* Create application */
+
             const application = {
 
                 job: jobName,
@@ -268,29 +590,40 @@
                     new Date().toLocaleDateString(),
 
                 status: "Applied"
+
             };
 
 
-            // Get existing applications
+            /* Get existing applications */
+
             let applications =
                 JSON.parse(
-                    localStorage.getItem("applications")
+                    localStorage.getItem(
+                        "applications"
+                    )
                 ) || [];
 
 
-            // Add new application
-            applications.push(application);
+            /* Add application */
+
+            applications.push(
+                application
+            );
 
 
-            // Save applications
+            /* Save applications */
+
             localStorage.setItem(
                 "applications",
-                JSON.stringify(applications)
+                JSON.stringify(
+                    applications
+                )
             );
 
         }
 
     </script>
+
 
 </body>
 

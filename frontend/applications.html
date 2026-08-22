@@ -5,143 +5,529 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Applications - Student Career CRM</title>
+    <title>My Applications - Student Career CRM</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef7ff, #f8fbff);
+            color: #1f2937;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0d6efd, #168de2);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+            font-size: 36px;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 17px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        /* Summary cards */
+
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .summary-card h2 {
+            margin: 0;
+            color: #0d6efd;
+            font-size: 30px;
+        }
+
+        .summary-card p {
+            margin: 8px 0 0;
+            color: #6b7280;
+            font-weight: bold;
+        }
+
+        /* Applications */
+
+        #applicationsList {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .application-card {
+            background: white;
+            padding: 28px;
+            border-radius: 16px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #0d6efd;
+            transition: transform 0.2s ease;
+        }
+
+        .application-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .application-card h2 {
+            margin: 0 0 20px;
+            color: #0d6efd;
+            font-size: 23px;
+        }
+
+        .details {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 22px;
+        }
+
+        .detail-box {
+            background: #f4f8fc;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .detail-box span {
+            display: block;
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .detail-box strong {
+            font-size: 15px;
+        }
+
+        /* Status */
+
+        .status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+            background: #e8f3ff;
+            color: #0d6efd;
+        }
+
+        .status.selected {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .status.interview {
+            background: #fff7ed;
+            color: #c2410c;
+        }
+
+        .status.rejected {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .update-button {
+            border: none;
+            background: #0d6efd;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .update-button:hover {
+            background: #0b5ed7;
+        }
+
+        /* Empty state */
+
+        .empty-state {
+            background: white;
+            padding: 50px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .empty-state h2 {
+            color: #0d6efd;
+        }
+
+        .empty-state p {
+            color: #6b7280;
+        }
+
+        /* Back button */
+
+        .back-button {
+            display: inline-block;
+            margin: 35px 0;
+            padding: 13px 25px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background: #0b5ed7;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .summary {
+                grid-template-columns: 1fr;
+            }
+
+            .details {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<main>
+    <!-- Header -->
 
-    <h1>My Applications</h1>
+    <header>
 
-    <p style="text-align: center;">
-        Track your job and internship applications.
-    </p>
+        <h1>📋 My Applications</h1>
 
+        <p>
+            Track and manage your job and internship applications.
+        </p>
 
-    <div class="dashboard">
-
-        <!-- Application 1 -->
-        <div class="card">
-
-            <h3>💻 Software Developer Intern</h3>
-
-            <p>
-                <strong>Company:</strong> Tech Solutions
-            </p>
-
-            <p>
-                <strong>Applied Date:</strong> 21 August 2026
-            </p>
-
-            <p>
-                <strong>Status:</strong>
-                <span class="application-status">
-                    Applied
-                </span>
-            </p>
-
-            <button onclick="updateStatus(this)">
-                Update Status
-            </button>
-
-        </div>
+    </header>
 
 
-        <!-- Application 2 -->
-        <div class="card">
+    <div class="container">
 
-            <h3>🌐 Frontend Developer</h3>
 
-            <p>
-                <strong>Company:</strong> Digital Innovations
-            </p>
+        <!-- Summary -->
 
-            <p>
-                <strong>Applied Date:</strong> 20 August 2026
-            </p>
+        <div class="summary">
 
-            <p>
-                <strong>Status:</strong>
-                <span class="application-status">
-                    Under Review
-                </span>
-            </p>
+            <div class="summary-card">
 
-            <button onclick="updateStatus(this)">
-                Update Status
-            </button>
+                <h2 id="totalApplications">0</h2>
+
+                <p>Total Applications</p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h2 id="interviewCount">0</h2>
+
+                <p>Interviews</p>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <h2 id="selectedCount">0</h2>
+
+                <p>Selected</p>
+
+            </div>
 
         </div>
 
 
-        <!-- Application 3 -->
-        <div class="card">
+        <!-- Applications -->
 
-            <h3>📊 Data Analyst Intern</h3>
+        <div id="applicationsList"></div>
 
-            <p>
-                <strong>Company:</strong> Data Works
-            </p>
 
-            <p>
-                <strong>Applied Date:</strong> 18 August 2026
-            </p>
+        <!-- Back -->
 
-            <p>
-                <strong>Status:</strong>
-                <span class="application-status">
-                    Interview
-                </span>
-            </p>
+        <div style="text-align: center;">
 
-            <button onclick="updateStatus(this)">
-                Update Status
-            </button>
+            <a href="/frontend/index.html" class="back-button">
+                ← Back to Dashboard
+            </a>
 
         </div>
 
     </div>
 
 
-    <div style="text-align: center; margin-top: 30px;">
+    <script>
 
-        <a href="/frontend/index.html" class="back-button">
-            ← Back to Dashboard
-        </a>
+        function loadApplications() {
 
-    </div>
-
-</main>
+            const applicationsList =
+                document.getElementById("applicationsList");
 
 
-<script>
+            let applications =
+                JSON.parse(
+                    localStorage.getItem("applications")
+                ) || [];
 
-function updateStatus(button) {
 
-    const status = button
-        .parentElement
-        .querySelector(".application-status");
+            /* Clear old content */
 
-    if (status.textContent.trim() === "Applied") {
+            applicationsList.innerHTML = "";
 
-        status.textContent = "Under Review";
 
-    } else if (status.textContent.trim() === "Under Review") {
+            /* Update summary */
 
-        status.textContent = "Interview";
+            document.getElementById("totalApplications").textContent =
+                applications.length;
 
-    } else {
 
-        status.textContent = "Selected";
+            document.getElementById("interviewCount").textContent =
+                applications.filter(
+                    app => app.status === "Interview"
+                ).length;
 
-    }
 
-}
+            document.getElementById("selectedCount").textContent =
+                applications.filter(
+                    app => app.status === "Selected"
+                ).length;
 
-</script>
+
+            /* No applications */
+
+            if (applications.length === 0) {
+
+                applicationsList.innerHTML = `
+
+                    <div class="empty-state">
+
+                        <h2>📭 No Applications Yet</h2>
+
+                        <p>
+                            You haven't applied to any jobs or internships yet.
+                        </p>
+
+                        <a href="jobs.html" class="back-button">
+                            Explore Jobs
+                        </a>
+
+                    </div>
+
+                `;
+
+                return;
+            }
+
+
+            /* Display applications */
+
+            applications.forEach(function(application, index) {
+
+                const card =
+                    document.createElement("div");
+
+                card.className = "application-card";
+
+
+                let statusClass = "";
+
+                if (application.status === "Selected") {
+
+                    statusClass = "selected";
+
+                } else if (application.status === "Interview") {
+
+                    statusClass = "interview";
+
+                } else if (application.status === "Rejected") {
+
+                    statusClass = "rejected";
+
+                }
+
+
+                card.innerHTML = `
+
+                    <h2>
+                        💼 ${application.job}
+                    </h2>
+
+
+                    <div class="details">
+
+                        <div class="detail-box">
+
+                            <span>Company</span>
+
+                            <strong>
+                                🏢 ${application.company}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-box">
+
+                            <span>Applied Date</span>
+
+                            <strong>
+                                📅 ${application.appliedDate}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="detail-box">
+
+                            <span>Status</span>
+
+                            <strong>
+                                <span class="status ${statusClass}">
+                                    ${application.status}
+                                </span>
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-row">
+
+                        <span>
+                            Application #${index + 1}
+                        </span>
+
+
+                        <button
+                            class="update-button"
+                            onclick="updateStatus(${index})">
+
+                            🔄 Update Status
+
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                applicationsList.appendChild(card);
+
+            });
+
+        }
+
+
+        /* Update application status */
+
+        function updateStatus(index) {
+
+            let applications =
+                JSON.parse(
+                    localStorage.getItem("applications")
+                ) || [];
+
+
+            const currentStatus =
+                applications[index].status;
+
+
+            if (currentStatus === "Applied") {
+
+                applications[index].status =
+                    "Under Review";
+
+            }
+
+            else if (currentStatus === "Under Review") {
+
+                applications[index].status =
+                    "Interview";
+
+            }
+
+            else if (currentStatus === "Interview") {
+
+                applications[index].status =
+                    "Selected";
+
+            }
+
+            else {
+
+                applications[index].status =
+                    "Applied";
+
+            }
+
+
+            /* Save updated application */
+
+            localStorage.setItem(
+                "applications",
+                JSON.stringify(applications)
+            );
+
+
+            /* Refresh page content */
+
+            loadApplications();
+
+        }
+
+
+        /* Load applications when page opens */
+
+        window.addEventListener(
+            "load",
+            loadApplications
+        );
+
+    </script>
 
 </body>
 

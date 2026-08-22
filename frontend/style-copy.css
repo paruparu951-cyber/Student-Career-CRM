@@ -1,0 +1,598 @@
+/* =========================================================
+   STUDENT CAREER CRM
+   Updated Modern CSS
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eef5ff;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+    background: linear-gradient(135deg, #1565c0, #5e35b1);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    margin: 8px 0 0;
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+
+/* =========================================================
+   HEADINGS
+   ========================================================= */
+
+h1 {
+    text-align: center;
+    color: #1565c0;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #1565c0;
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   PARAGRAPHS
+   ========================================================= */
+
+p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   DASHBOARD CARDS
+   ========================================================= */
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid #dbeafe;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(21, 101, 192, 0.15);
+    border-color: #93c5fd;
+}
+
+.card h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card p {
+    color: #475569;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: #1259a5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(25, 118, 210, 0.25);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   FORMS
+   ========================================================= */
+
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* Two-column form layout */
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+/* Labels */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #374151;
+}
+
+
+/* Inputs */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    background: white;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Input focus */
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
+}
+
+
+/* Textarea */
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* =========================================================
+   JOBS & INTERNSHIPS
+   ========================================================= */
+
+.job-card {
+    background: white;
+    padding: 28px;
+    margin-bottom: 22px;
+    border-radius: 15px;
+    border: 1px solid #dbeafe;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(21, 101, 192, 0.13);
+}
+
+.job-card h2,
+.job-card h3 {
+    text-align: left;
+    color: #1565c0;
+}
+
+.job-card p {
+    color: #475569;
+    margin: 7px 0;
+}
+
+
+/* =========================================================
+   APPLICATION MESSAGE
+   ========================================================= */
+
+#applicationMessage {
+    text-align: center;
+    font-weight: bold;
+    color: #166534;
+    background: #dcfce7;
+    border: 1px solid #86efac;
+
+    padding: 14px 20px;
+    border-radius: 10px;
+
+    max-width: 800px;
+    margin: 0 auto 25px;
+
+    box-shadow: 0 4px 12px rgba(22, 101, 52, 0.08);
+}
+
+
+/* =========================================================
+   APPLICATION TRACKING
+   ========================================================= */
+
+.application-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+
+    border-left: 5px solid #1976d2;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(21, 101, 192, 0.12);
+}
+
+
+/* =========================================================
+   APPLICATION STATUS
+   ========================================================= */
+
+.status {
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-success {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #a16207;
+}
+
+.status-rejected {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.skill-card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(21, 101, 192, 0.12);
+}
+
+
+/* Skill progress */
+
+.skill-bar {
+    width: 100%;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 8px;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #1976d2, #7e57c2);
+    border-radius: 10px;
+}
+
+
+/* =========================================================
+   BACK TO DASHBOARD
+   ========================================================= */
+
+.back-button {
+    display: inline-block;
+
+    margin-top: 20px;
+    padding: 12px 20px;
+
+    background: #64748b;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+    font-weight: bold;
+
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease;
+}
+
+.back-button:hover {
+    background: #475569;
+    color: white;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   CENTER ALIGNMENT
+   ========================================================= */
+
+.center {
+    text-align: center;
+}
+
+
+/* =========================================================
+   GENERAL SECTION BOX
+   ========================================================= */
+
+.section-box {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1259a5;
+}
+
+
+/* =========================================================
+   BADGES
+   ========================================================= */
+
+.badge {
+    display: inline-block;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    background: #dbeafe;
+    color: #1d4ed8;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   SIMPLE ANIMATION
+   ========================================================= */
+
+.card,
+.job-card,
+.application-card,
+.skill-card,
+.section-box {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 30px 15px;
+    }
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        width: 94%;
+        margin: 25px auto;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .card,
+    .job-card,
+    form,
+    .section-box {
+        padding: 22px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .back-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* =========================================================
+   EXTRA SMALL DEVICES
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 21px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .card,
+    .job-card,
+    form,
+    .section-box {
+        padding: 18px;
+    }
+}

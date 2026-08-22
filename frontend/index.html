@@ -2,85 +2,781 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Student Career CRM</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>Student Career CRM</h1>
-        <p>Manage your career journey in one place</p>
-    </header>
 
-    <!-- Dashboard -->
-    <main>
+<!-- =====================================================
+     DASHBOARD LAYOUT
+===================================================== -->
 
-        <h2>Dashboard</h2>
+<div class="dashboard-layout">
 
-        <div class="dashboard">
 
-            <!-- Profile -->
-            <div class="card">
-                <h3>👤 My Profile</h3>
-                <p>View and update your personal information.</p>
-                <button onclick="window.location.href='profile.html'">
-    My Profile
-</button>
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="dashboard-sidebar">
+
+        <div class="dashboard-logo">
+
+            <div class="dashboard-logo-icon">
+                🎓
             </div>
 
-            <!-- Resume -->
-            <div class="card">
-                <h3>📄 Resume Builder</h3>
-                <p>Create and manage your professional resume.</p>
-                <button onclick="window.location.href='resume.html'">
-    Build Resume
-</button>
+            <h2>
+                Career CRM
+            </h2>
+
+            <p>
+                Student Portal
+            </p>
+
+        </div>
+
+
+        <nav class="dashboard-nav">
+
+            <a href="index.html">
+                🏠 Dashboard
+            </a>
+
+            <a href="profile.html">
+                👤 My Profile
+            </a>
+
+            <a href="resume.html">
+                📄 Resume
+            </a>
+
+            <a href="goals.html">
+                🎯 Career Goals
+            </a>
+
+            <a href="skills.html">
+                ⭐ Skills
+            </a>
+
+            <a href="/jobs.html">
+                💼 Jobs & Internships
+            </a>
+
+            <a href="applications.html">
+                📋 Applications
+            </a>
+
+            <a href="interview.html">
+                🎤 Interview Practice
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="dashboard-content">
+
+
+        <!-- TOP BAR -->
+
+        <div class="dashboard-topbar">
+
+            <div class="dashboard-welcome">
+
+                <h1>
+                    Student Career Dashboard
+                </h1>
+
+                <p>
+                    Prepare yourself for your future career.
+                </p>
+
             </div>
 
-            <!-- Career Goals -->
-            <div class="card">
-                <h3>🎯 Career Goals</h3>
-                <p>Set your career goals and track your progress.</p>
-                <button onclick="window.location.href='goals.html'">
-    View Goals
-</button>
-            </div>
 
-            <!-- Jobs -->
-            <div class="card">
-                <h3>💼 Jobs & Internships</h3>
-                <p>Explore job and internship opportunities.</p>
-                <button onclick="window.location.href='/jobs.html'">
-    View Jobs
-</button>
-            </div>
+            <div class="dashboard-user">
 
-            <!-- Applications -->
-            <div class="card">
-                <h3>📊 Applications</h3>
-                <p>Track the status of your job applications.</p>
-                <button onclick="window.location.href='/frontend/applications.html'">
-    Track Applications
-</button>
-            </div>
+                👋 Welcome, Student
 
-            <!-- Skills -->
-            <div class="card">
-                <h3>⭐ Skills</h3>
-                <p>Manage your technical and professional skills.</p>
-                <button onclick="window.location.href='skills.html'">
-                    View Skills</button>
             </div>
 
         </div>
 
+
+
+        <!-- =================================================
+             PROFILE COMPLETION HERO
+        ================================================== -->
+
+        <section class="dashboard-hero">
+
+            <div class="dashboard-hero-content">
+
+
+                <div class="dashboard-hero-text">
+
+                    <span>
+                        🚀 Keep Going!
+                    </span>
+
+                    <h2>
+                        Build your career profile
+                    </h2>
+
+                    <p>
+                        Complete your profile and get ready
+                        for your dream career.
+                    </p>
+
+                </div>
+
+
+                <div class="dashboard-progress-circle">
+
+                    <div
+                        class="dashboard-progress-inner"
+                        id="profilePercentage">
+
+                        67%
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="dashboard-progress-container">
+
+                <div
+                    class="dashboard-progress-bar"
+                    id="profileProgressBar">
+
+                </div>
+
+            </div>
+
+
+            <p class="dashboard-progress-text">
+
+                Profile Completion
+
+                <strong id="profileProgressText">
+                    67%
+                </strong>
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             QUICK STATISTICS
+        ================================================== -->
+
+        <section class="dashboard-stats">
+
+
+            <div class="dashboard-stat">
+
+                <div class="dashboard-stat-icon">
+                    📋
+                </div>
+
+                <div>
+
+                    <strong id="applicationCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Applications
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="dashboard-stat">
+
+                <div class="dashboard-stat-icon">
+                    🎤
+                </div>
+
+                <div>
+
+                    <strong id="interviewCount">
+                        0
+                    </strong>
+
+                    <span>
+                        Interviews
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="dashboard-stat">
+
+                <div class="dashboard-stat-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <strong id="goalProgress">
+                        0%
+                    </strong>
+
+                    <span>
+                        Goal Progress
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="dashboard-stat">
+
+                <div class="dashboard-stat-icon">
+                    ⭐
+                </div>
+
+                <div>
+
+                    <strong>
+                        3
+                    </strong>
+
+                    <span>
+                        Skills
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FEATURES
+        ================================================== -->
+
+        <h2 class="dashboard-section-title">
+
+            Career Management
+
+        </h2>
+
+
+        <section class="dashboard-features">
+
+
+            <!-- PROFILE -->
+
+            <div class="dashboard-feature-card">
+
+                <div class="dashboard-feature-icon">
+                    👤
+                </div>
+
+                <h3>
+                    My Profile
+                </h3>
+
+                <p>
+                    View and update your personal
+                    and professional information.
+                </p>
+
+                <a href="profile.html">
+                    View Profile →
+                </a>
+
+            </div>
+
+
+
+            <!-- RESUME -->
+
+            <div class="dashboard-feature-card">
+
+                <div class="dashboard-feature-icon">
+                    📄
+                </div>
+
+                <h3>
+                    Resume Builder
+                </h3>
+
+                <p>
+                    Create and manage your
+                    professional resume.
+                </p>
+
+                <a href="resume.html">
+                    Build Resume →
+                </a>
+
+            </div>
+
+
+
+            <!-- CAREER GOALS -->
+
+            <div class="dashboard-feature-card">
+
+                <div class="dashboard-feature-icon">
+                    🎯
+                </div>
+
+                <h3>
+                    Career Goals
+                </h3>
+
+                <p>
+                    Set your career goals and
+                    track your progress.
+                </p>
+
+                <a href="goals.html">
+                    View Goals →
+                </a>
+
+            </div>
+
+
+
+            <!-- SKILLS -->
+
+            <div class="dashboard-feature-card">
+
+                <div class="dashboard-feature-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    My Skills
+                </h3>
+
+                <p>
+                    Track your technical and
+                    professional skills.
+                </p>
+
+                <a href="skills.html">
+                    View Skills →
+                </a>
+
+            </div>
+
+
+
+            <!-- JOBS -->
+
+            <div class="dashboard-feature-card">
+
+                <div class="dashboard-feature-icon">
+                    💼
+                </div>
+
+                <h3>
+                    Jobs & Internships
+                </h3>
+
+                <p>
+                    Explore job and internship
+                    opportunities.
+                </p>
+
+                <a href="jobs.html">
+                    Explore Jobs →
+                </a>
+
+            </div>
+
+
+
+            <!-- APPLICATIONS -->
+
+            <div class="dashboard-feature-card">
+
+                <div class="dashboard-feature-icon">
+                    📋
+                </div>
+
+                <h3>
+                    Applications
+                </h3>
+
+                <p>
+                    Track applications, statuses,
+                    interviews and selections.
+                </p>
+
+                <a href="applications.html">
+                    View Applications →
+                </a>
+
+            </div>
+
+
+
+            <!-- INTERVIEW -->
+
+            <div class="dashboard-feature-card">
+
+                <div class="dashboard-feature-icon">
+                    🎤
+                </div>
+
+                <h3>
+                    Interview Practice
+                </h3>
+
+                <p>
+                    Practice technical interview
+                    questions and improve your score.
+                </p>
+
+                <a href="interview.html">
+                    Start Preparation →
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             LATEST INTERVIEW RESULT
+        ================================================== -->
+
+        <section class="dashboard-bottom">
+
+
+            <div class="dashboard-result-card">
+
+                <div class="dashboard-result-title">
+
+                    <h2>
+                        📊 Latest Interview Result
+                    </h2>
+
+                </div>
+
+
+                <div id="latestResult">
+
+                    <p class="dashboard-no-result">
+                        No interview practice completed yet.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            Student Career CRM © 2026
+
+        </footer>
+
+
     </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   PROFILE COMPLETION
+===================================================== */
+
+function updateProfileCompletion() {
+
+    let completed = 0;
+
+    const fields = [
+
+        "fullName",
+        "email",
+        "phone",
+        "location",
+        "linkedin",
+        "github",
+        "careerGoal",
+        "targetRole",
+        "goalDescription"
+
+    ];
+
+
+    fields.forEach(function(field) {
+
+        const value =
+            localStorage.getItem("profile_" + field) ||
+            localStorage.getItem(field);
+
+        if (value && value.trim() !== "") {
+
+            completed++;
+
+        }
+
+    });
+
+
+    let percentage =
+        Math.round(
+            (completed / fields.length) * 100
+        );
+
+
+    /* Keep the dashboard visually useful
+       if profile fields are not yet stored */
+
+    if (percentage === 0) {
+
+        percentage = 67;
+
+    }
+
+
+    document.getElementById(
+        "profilePercentage"
+    ).textContent = percentage + "%";
+
+
+    document.getElementById(
+        "profileProgressText"
+    ).textContent = percentage + "%";
+
+
+    document.getElementById(
+        "profileProgressBar"
+    ).style.width = percentage + "%";
+
+}
+
+
+
+/* =====================================================
+   APPLICATION COUNT
+===================================================== */
+
+function loadApplicationCount() {
+
+    const applications =
+        JSON.parse(
+            localStorage.getItem("applications")
+        ) || [];
+
+
+    document.getElementById(
+        "applicationCount"
+    ).textContent =
+        applications.length;
+
+}
+
+
+
+/* =====================================================
+   GOAL PROGRESS
+===================================================== */
+
+function loadGoalProgress() {
+
+    const progress =
+        localStorage.getItem("progress");
+
+
+    if (progress) {
+
+        document.getElementById(
+            "goalProgress"
+        ).textContent =
+            progress + "%";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   INTERVIEW RESULT
+===================================================== */
+
+function loadInterviewResult() {
+
+    const resultData =
+        localStorage.getItem(
+            "interviewResult"
+        );
+
+
+    const container =
+        document.getElementById(
+            "latestResult"
+        );
+
+
+    if (!resultData) {
+
+        container.innerHTML =
+
+            `
+            <p class="dashboard-no-result">
+                No interview practice completed yet.
+                <br><br>
+
+                <a href="interview.html">
+                    Start your first interview →
+                </a>
+            </p>
+            `;
+
+        return;
+
+    }
+
+
+    const result =
+        JSON.parse(resultData);
+
+
+    container.innerHTML =
+
+        `
+
+        <div class="dashboard-result-box">
+
+            <div>
+
+                <strong>
+                    Domain
+                </strong>
+
+                <span>
+                    ${result.domain}
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Difficulty
+                </strong>
+
+                <span>
+                    ${result.difficulty}
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Score
+                </strong>
+
+                <span class="dashboard-result-score">
+                    ${result.percentage}%
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <p>
+            ${result.message || "Keep practicing and improving!"}
+        </p>
+
+        <small>
+            Completed:
+            ${result.date || ""}
+        </small>
+
+        `;
+
+}
+
+
+
+/* =====================================================
+   PAGE LOAD
+===================================================== */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        updateProfileCompletion();
+
+        loadApplicationCount();
+
+        loadGoalProgress();
+
+        loadInterviewResult();
+
+    }
+);
+
+</script>
+
 
 </body>
 

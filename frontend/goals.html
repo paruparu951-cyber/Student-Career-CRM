@@ -7,92 +7,393 @@
     <title>Career Goals - Student Career CRM</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== CAREER GOALS PAGE ===== */
+
+        body {
+            background: linear-gradient(135deg, #eef6ff, #f8fbff);
+        }
+
+        .goals-page {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .goals-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .goals-header h1 {
+            color: #1769aa;
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+
+        .goals-header p {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .goals-card {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 80, 150, 0.12);
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            color: #1769aa;
+            font-size: 22px;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e8f2fb;
+            padding-bottom: 12px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 15px;
+            border: 1px solid #d5e2ef;
+            border-radius: 10px;
+            font-size: 15px;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2196f3;
+            box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.12);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .progress-section {
+            margin-top: 10px;
+            padding: 20px;
+            background: #f5faff;
+            border-radius: 14px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-header strong {
+            color: #1769aa;
+        }
+
+        #progressValue {
+            font-weight: bold;
+            color: #2196f3;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 14px;
+            background: #e4edf5;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        #progressFill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #2196f3, #00bcd4);
+            border-radius: 20px;
+            transition: width 0.4s ease;
+        }
+
+        .save-button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #1976d2, #2196f3);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .save-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(33, 150, 243, 0.25);
+        }
+
+        #goalMessage {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 25px auto;
+            padding: 12px 22px;
+            background: white;
+            color: #1769aa;
+            text-decoration: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 80, 150, 0.1);
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background: #eef7ff;
+        }
+
+        @media (max-width: 700px) {
+
+            .goals-page {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            .goals-card {
+                padding: 22px;
+            }
+
+            .goals-header h1 {
+                font-size: 30px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<main>
+<div class="goals-page">
 
-    <h1>Career Goals</h1>
+    <!-- HEADER -->
+    <div class="goals-header">
 
-    <p style="text-align: center;">
-        Set your career goals and track your progress.
-    </p>
+        <h1>🎯 Career Goals</h1>
 
-    <form id="goalsForm">
+        <p>
+            Set your career goals, track your progress,
+            and stay focused on your future.
+        </p>
 
-        <div class="form-group">
-            <label for="careerGoal">Career Goal</label>
+    </div>
 
-            <input
-                type="text"
-                id="careerGoal"
-                placeholder="e.g. Become a Software Developer"
-                required
+
+    <!-- GOAL FORM -->
+    <div class="goals-card">
+
+        <h2 class="section-title">
+            🚀 Your Career Plan
+        </h2>
+
+        <form id="goalsForm">
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="careerGoal">
+                        Career Goal
+                    </label>
+
+                    <input
+                        type="text"
+                        id="careerGoal"
+                        placeholder="e.g. Become a Software Developer"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="targetRole">
+                        Target Job Role
+                    </label>
+
+                    <input
+                        type="text"
+                        id="targetRole"
+                        placeholder="e.g. Frontend Developer"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="targetDate">
+                    📅 Target Date
+                </label>
+
+                <input
+                    type="date"
+                    id="targetDate"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="goalDescription">
+                    📝 Goal Description
+                </label>
+
+                <textarea
+                    id="goalDescription"
+                    placeholder="Describe what you want to achieve and how you plan to achieve it..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- PROGRESS -->
+            <div class="progress-section">
+
+                <div class="progress-header">
+
+                    <strong>📊 Goal Progress</strong>
+
+                    <span id="progressValue">0%</span>
+
+                </div>
+
+                <div class="progress-bar">
+
+                    <div id="progressFill"></div>
+
+                </div>
+
+                <div class="form-group" style="margin-top: 18px; margin-bottom: 0;">
+
+                    <label for="progress">
+                        Progress (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="progress"
+                        min="0"
+                        max="100"
+                        value="0"
+                        placeholder="0"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <br>
+
+            <button
+                type="submit"
+                class="save-button"
             >
-        </div>
+                💾 Save Career Goal
+            </button>
 
-        <div class="form-group">
-            <label for="targetRole">Target Job Role</label>
+            <p id="goalMessage"></p>
 
-            <input
-                type="text"
-                id="targetRole"
-                placeholder="e.g. Frontend Developer"
-            >
-        </div>
+        </form>
 
-        <div class="form-group">
-            <label for="targetDate">Target Date</label>
+    </div>
 
-            <input
-                type="date"
-                id="targetDate"
-            >
-        </div>
 
-        <div class="form-group">
-            <label for="goalDescription">Goal Description</label>
-
-            <textarea
-                id="goalDescription"
-                placeholder="Describe your career goal..."
-            ></textarea>
-        </div>
-
-        <div class="form-group">
-            <label for="progress">Progress (%)</label>
-
-            <input
-                type="number"
-                id="progress"
-                min="0"
-                max="100"
-                placeholder="0"
-            >
-        </div>
-
-        <button type="submit">
-            Save Goal
-        </button>
-
-        <p id="goalMessage"></p>
-
-    </form>
-
+    <!-- BACK BUTTON -->
     <a href="index.html" class="back-button">
         ← Back to Dashboard
     </a>
 
-</main>
+</div>
 
 
 <script>
 
     const goalsForm = document.getElementById("goalsForm");
-    const goalMessage = document.getElementById("goalMessage");
 
-    // Load saved goal
+    const goalMessage =
+        document.getElementById("goalMessage");
+
+    const progressInput =
+        document.getElementById("progress");
+
+    const progressFill =
+        document.getElementById("progressFill");
+
+    const progressValue =
+        document.getElementById("progressValue");
+
+
+    /* ==============================
+       UPDATE PROGRESS BAR
+    ============================== */
+
+    function updateProgress() {
+
+        let progress =
+            parseInt(progressInput.value) || 0;
+
+        if (progress < 0) {
+            progress = 0;
+        }
+
+        if (progress > 100) {
+            progress = 100;
+        }
+
+        progressInput.value = progress;
+
+        progressFill.style.width =
+            progress + "%";
+
+        progressValue.textContent =
+            progress + "%";
+    }
+
+
+    /* ==============================
+       LOAD SAVED GOAL
+    ============================== */
+
     window.onload = function () {
 
         document.getElementById("careerGoal").value =
@@ -108,46 +409,76 @@
             localStorage.getItem("goalDescription") || "";
 
         document.getElementById("progress").value =
-            localStorage.getItem("progress") || "";
+            localStorage.getItem("progress") || "0";
+
+        updateProgress();
     };
 
 
-    // Save goal
-    goalsForm.addEventListener("submit", function(event) {
+    /* ==============================
+       LIVE PROGRESS
+    ============================== */
 
-        event.preventDefault();
+    progressInput.addEventListener(
+        "input",
+        updateProgress
+    );
 
-        localStorage.setItem(
-            "careerGoal",
-            document.getElementById("careerGoal").value
-        );
 
-        localStorage.setItem(
-            "targetRole",
-            document.getElementById("targetRole").value
-        );
+    /* ==============================
+       SAVE GOAL
+    ============================== */
 
-        localStorage.setItem(
-            "targetDate",
-            document.getElementById("targetDate").value
-        );
+    goalsForm.addEventListener(
+        "submit",
+        function(event) {
 
-        localStorage.setItem(
-            "goalDescription",
-            document.getElementById("goalDescription").value
-        );
+            event.preventDefault();
 
-        localStorage.setItem(
-            "progress",
-            document.getElementById("progress").value
-        );
+            localStorage.setItem(
+                "careerGoal",
+                document.getElementById("careerGoal").value.trim()
+            );
 
-        goalMessage.textContent =
-            "Career goal saved successfully!";
+            localStorage.setItem(
+                "targetRole",
+                document.getElementById("targetRole").value.trim()
+            );
 
-        goalMessage.style.color = "green";
-        goalMessage.style.fontWeight = "bold";
-    });
+            localStorage.setItem(
+                "targetDate",
+                document.getElementById("targetDate").value
+            );
+
+            localStorage.setItem(
+                "goalDescription",
+                document.getElementById("goalDescription").value.trim()
+            );
+
+            localStorage.setItem(
+                "progress",
+                document.getElementById("progress").value
+            );
+
+
+            updateProgress();
+
+
+            goalMessage.textContent =
+                "✅ Career goal saved successfully!";
+
+            goalMessage.style.color =
+                "#159447";
+
+
+            setTimeout(function() {
+
+                goalMessage.textContent = "";
+
+            }, 3000);
+
+        }
+    );
 
 </script>
 

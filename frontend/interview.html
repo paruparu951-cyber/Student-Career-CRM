@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Interview Practice</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #e8f4ff, #f8fbff);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            text-align: center;
+        }
+
+        h1 {
+            color: #174a8b;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #174a8b;
+        }
+
+        .subtitle {
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0 8px;
+        }
+
+        select {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            background: white;
+        }
+
+        button {
+            border: none;
+            border-radius: 10px;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .primary-btn {
+            background: #168bd4;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            background: #0876ba;
+        }
+
+        .secondary-btn {
+            background: #52677d;
+            color: white;
+        }
+
+        .secondary-btn:hover {
+            background: #3e5266;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .question-number {
+            text-align: left;
+            color: #1761a0;
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 25px;
+            font-weight: bold;
+            color: #253b55;
+            margin-bottom: 30px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            border: 2px solid #e0e6ed;
+            border-radius: 12px;
+            padding: 16px;
+            cursor: pointer;
+            transition: 0.2s;
+            background: white;
+        }
+
+        .option:hover {
+            border-color: #168bd4;
+            background: #f3faff;
+        }
+
+        .option input {
+            margin-right: 14px;
+            transform: scale(1.2);
+        }
+
+        .option.selected {
+            border-color: #168bd4;
+            background: #eaf7ff;
+        }
+
+        .next-area {
+            text-align: right;
+        }
+
+        .result-score {
+            font-size: 40px;
+            font-weight: bold;
+            color: #1761a0;
+            margin: 20px 0;
+        }
+
+        .result-info {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .result-message {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #1761a0;
+        }
+
+        .percentage {
+            font-size: 30px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #168bd4;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .difficulty-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #edf5ff;
+            color: #1761a0;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .card {
+                padding: 25px 18px;
+            }
+
+            .question-text {
+                font-size: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- =========================================
+             START SCREEN
+        ========================================== -->
+
+        <div id="startScreen" class="card">
+
+            <h1>🎤 Interview Practice</h1>
+
+            <p class="subtitle">
+                Test your technical knowledge based on your selected domain and difficulty level.
+            </p>
+
+            <!-- DOMAIN -->
+
+            <label for="domain">
+                Select Domain
+            </label>
+
+            <select id="domain">
+
+                <option value="html">
+                    🌐 HTML
+                </option>
+
+                <option value="css">
+                    🎨 CSS
+                </option>
+
+                <option value="javascript">
+                    ⚡ JavaScript
+                </option>
+
+            </select>
+
+
+            <!-- DIFFICULTY -->
+
+            <label for="difficulty">
+                Select Difficulty Level
+            </label>
+
+            <select id="difficulty">
+
+                <option value="easy">
+                    🟢 Easy
+                </option>
+
+                <option value="moderate">
+                    🟡 Moderate
+                </option>
+
+                <option value="difficult">
+                    🔴 Difficult
+                </option>
+
+            </select>
+
+
+            <button
+                class="primary-btn"
+                onclick="startInterview()">
+
+                Start Practice 🚀
+
+            </button>
+
+            <br>
+
+            <button
+                class="secondary-btn"
+                onclick="goToDashboard()">
+
+                ← Back to Dashboard
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================================
+             QUESTION SCREEN
+        ========================================== -->
+
+        <div id="questionScreen" class="card hidden">
+
+            <div
+                id="questionNumber"
+                class="question-number">
+            </div>
+
+            <div
+                id="questionText"
+                class="question-text">
+            </div>
+
+            <div
+                id="optionsContainer"
+                class="options">
+            </div>
+
+            <div class="next-area">
+
+                <button
+                    id="nextButton"
+                    class="primary-btn"
+                    onclick="nextQuestion()">
+
+                    Next Question →
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================================
+             RESULT SCREEN
+        ========================================== -->
+
+        <div id="resultScreen" class="card hidden">
+
+            <h1>Practice Complete 🎉</h1>
+
+            <div
+                id="score"
+                class="result-score">
+            </div>
+
+            <div
+                id="percentage"
+                class="percentage">
+            </div>
+
+            <div
+                id="resultInfo"
+                class="result-info">
+            </div>
+
+            <div
+                id="resultMessage"
+                class="result-message">
+            </div>
+
+            <div class="button-group">
+
+                <button
+                    class="primary-btn"
+                    onclick="restartPractice()">
+
+                    Practice Again 🔄
+
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="goToDashboard()">
+
+                    ← Back to Dashboard
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* =====================================================
+           QUESTION DATABASE
+
+           Each domain has:
+           EASY       = 5 questions
+           MODERATE   = 5 questions
+           DIFFICULT  = 5 questions
+        ===================================================== */
+
+        const questionBank = {
+
+            /* =================================================
+               HTML
+            ================================================= */
+
+            html: {
+
+                easy: [
+
+                    {
+                        question: "Which HTML tag is used to create a hyperlink?",
+                        options: [
+                            "<link>",
+                            "<a>",
+                            "<href>",
+                            "<url>"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which HTML tag is used to display an image?",
+                        options: [
+                            "<image>",
+                            "<img>",
+                            "<picture>",
+                            "<src>"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which HTML tag is used to create a paragraph?",
+                        options: [
+                            "<paragraph>",
+                            "<p>",
+                            "<para>",
+                            "<text>"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which HTML tag is used for the largest heading?",
+                        options: [
+                            "<heading>",
+                            "<h6>",
+                            "<h1>",
+                            "<head>"
+                        ],
+                        answer: 2
+                    },
+
+                    {
+                        question: "Which HTML tag creates an unordered list?",
+                        options: [
+                            "<ol>",
+                            "<list>",
+                            "<ul>",
+                            "<li>"
+                        ],
+                        answer: 2
+                    }
+
+                ],
+
+                moderate: [
+
+                    {
+                        question: "Which HTML attribute specifies the destination of a hyperlink?",
+                        options: [
+                            "src",
+                            "href",
+                            "link",
+                            "url"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which HTML element is used to define a table row?",
+                        options: [
+                            "<td>",
+                            "<th>",
+                            "<tr>",
+                            "<row>"
+                        ],
+                        answer: 2
+                    },
+
+                    {
+                        question: "Which HTML element is used to collect user input?",
+                        options: [
+                            "<input>",
+                            "<form>",
+                            "<data>",
+                            "<collect>"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which attribute provides alternative text for an image?",
+                        options: [
+                            "title",
+                            "src",
+                            "alt",
+                            "text"
+                        ],
+                        answer: 2
+                    },
+
+                    {
+                        question: "Which HTML element is used for navigation links?",
+                        options: [
+                            "<navigation>",
+                            "<navigate>",
+                            "<nav>",
+                            "<links>"
+                        ],
+                        answer: 2
+                    }
+
+                ],
+
+                difficult: [
+
+                    {
+                        question: "Which HTML5 element is intended for self-contained content such as a blog post?",
+                        options: [
+                            "<section>",
+                            "<article>",
+                            "<content>",
+                            "<aside>"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which attribute makes an input field mandatory?",
+                        options: [
+                            "validate",
+                            "required",
+                            "mandatory",
+                            "must"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which HTML element is used to provide a caption for a <figure>?",
+                        options: [
+                            "<caption>",
+                            "<figcaption>",
+                            "<figurecaption>",
+                            "<label>"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which attribute is used to associate a <label> with an input element?",
+                        options: [
+                            "name",
+                            "target",
+                            "for",
+                            "connect"
+                        ],
+                        answer: 2
+                    },
+
+                    {
+                        question: "Which HTML element represents content indirectly related to the main content?",
+                        options: [
+                            "<aside>",
+                            "<section>",
+                            "<extra>",
+                            "<related>"
+                        ],
+                        answer: 0
+                    }
+
+                ]
+
+            },
+
+
+            /* =================================================
+               CSS
+            ================================================= */
+
+            css: {
+
+                easy: [
+
+                    {
+                        question: "Which CSS property changes the text color?",
+                        options: [
+                            "font-color",
+                            "text-color",
+                            "color",
+                            "background-color"
+                        ],
+                        answer: 2
+                    },
+
+                    {
+                        question: "Which CSS property changes the background color?",
+                        options: [
+                            "color",
+                            "background-color",
+                            "bg-color",
+                            "background"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which symbol is used for an ID selector in CSS?",
+                        options: [
+                            ".",
+                            "#",
+                            "*",
+                            "&"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which symbol is used for a class selector in CSS?",
+                        options: [
+                            "#",
+                            ".",
+                            "*",
+                            "@"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which CSS property changes the size of text?",
+                        options: [
+                            "text-size",
+                            "font-size",
+                            "size",
+                            "font-style"
+                        ],
+                        answer: 1
+                    }
+
+                ],
+
+                moderate: [
+
+                    {
+                        question: "Which CSS property is used to create space inside an element?",
+                        options: [
+                            "margin",
+                            "padding",
+                            "spacing",
+                            "border"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which CSS property is used to create space outside an element?",
+                        options: [
+                            "padding",
+                            "margin",
+                            "spacing",
+                            "outside"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which CSS layout system is commonly used for one-dimensional layouts?",
+                        options: [
+                            "Float",
+                            "Flexbox",
+                            "Position",
+                            "Table"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which CSS property controls the order of flex items?",
+                        options: [
+                            "order",
+                            "flex-order",
+                            "item-order",
+                            "position"
+                        ],
+                        answer: 0
+                    },
+
+                    {
+                        question: "Which pseudo-class applies styles when the mouse is over an element?",
+                        options: [
+                            ":active",
+                            ":focus",
+                            ":hover",
+                            ":visited"
+                        ],
+                        answer: 2
+                    }
+
+                ],
+
+                difficult: [
+
+                    {
+                        question: "Which CSS property controls the stacking order of positioned elements?",
+                        options: [
+                            "stack",
+                            "z-index",
+                            "layer",
+                            "position-index"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which CSS function is commonly used to calculate a value dynamically?",
+                        options: [
+                            "compute()",
+                            "calc()",
+                            "math()",
+                            "value()"
+                        ],
+                        answer: 1
+                    },
+
+                    {
+                        question: "Which CSS layout system is designed primarily for two-dimensional layouts?",
+                        options: [
+                            "Flexbox",
+                            "Grid","Float",
+                    "Inline"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "What does the CSS property 'box-sizing: border-box' do?",
+                options: [
+                    "Removes the border",
+                    "Includes padding and border in the element's declared width and height",
+                    "Adds a box shadow",
+                    "Makes the element inline"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which CSS unit is relative to the root element's font size?",
+                options: [
+                    "em",
+                    "rem",
+                    "%",
+                    "vh"
+                ],
+                answer: 1
+            }
+
+        ]
+
+    },
+
+
+    /* =================================================
+       JAVASCRIPT
+    ================================================= */
+
+    javascript: {
+
+        easy: [
+
+            {
+                question: "Which keyword is used to declare a variable that cannot be reassigned?",
+                options: [
+                    "var",
+                    "let",
+                    "const",
+                    "static"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which method is used to print something in the browser console?",
+                options: [
+                    "console.print()",
+                    "console.log()",
+                    "print.console()",
+                    "log.console()"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which symbol is used for a single-line comment in JavaScript?",
+                options: [
+                    "<!--",
+                    "//",
+                    "#",
+                    "/*"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which data type represents true or false?",
+                options: [
+                    "String",
+                    "Number",
+                    "Boolean",
+                    "Object"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which method adds an element to the end of an array?",
+                options: [
+                    "push()",
+                    "add()",
+                    "append()",
+                    "insert()"
+                ],
+                answer: 0
+            }
+
+        ],
+
+        moderate: [
+
+            {
+                question: "Which method converts a JSON string into a JavaScript object?",
+                options: [
+                    "JSON.parse()",
+                    "JSON.convert()",
+                    "JSON.object()",
+                    "JSON.toObject()"
+                ],
+                answer: 0
+            },
+
+            {
+                question: "Which method removes the last element from an array?",
+                options: [
+                    "delete()",
+                    "remove()",
+                    "pop()",
+                    "shift()"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which operator checks both value and type equality?",
+                options: [
+                    "==",
+                    "=",
+                    "===",
+                    "!="
+                ],
+                answer: 2
+            },
+
+            {
+                question: "Which array method creates a new array by applying a function to every element?",
+                options: [
+                    "forEach()",
+                    "map()",
+                    "filter()",
+                    "reduce()"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "What does DOM stand for?",
+                options: [
+                    "Document Object Model",
+                    "Data Object Management",
+                    "Document Oriented Method",
+                    "Digital Object Model"
+                ],
+                answer: 0
+            }
+
+        ],
+
+        difficult: [
+
+            {
+                question: "What is a closure in JavaScript?",
+                options: [
+                    "A loop that automatically closes",
+                    "A function that remembers variables from its outer scope",
+                    "A method for closing a browser",
+                    "A special type of object"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which method creates a new array containing elements that pass a test?",
+                options: [
+                    "map()",
+                    "reduce()",
+                    "filter()",
+                    "findAll()"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "What does Promise.all() do?",
+                options: [
+                    "Runs only one promise",
+                    "Waits for all supplied promises to settle successfully or rejects when one rejects",
+                    "Cancels all promises",
+                    "Converts promises into callbacks"
+                ],
+                answer: 1
+            },
+
+            {
+                question: "Which keyword is used to pause execution inside an async function until a Promise settles?",
+                options: [
+                    "wait",
+                    "pause",
+                    "await",
+                    "async"
+                ],
+                answer: 2
+            },
+
+            {
+                question: "What is event bubbling?",
+                options: [
+                    "An event moving from the target element toward its ancestors",
+                    "An event being deleted",
+                    "An event moving only to child elements",
+                    "An event being converted to JSON"
+                ],
+                answer: 0
+            }
+
+        ]
+
+    }
+
+};
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let questions = [];
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let selectedAnswer = null;
+
+let selectedDomain = "";
+
+let selectedDifficulty = "";
+
+
+/* =====================================================
+   START INTERVIEW
+===================================================== */
+
+function startInterview() {
+
+    selectedDomain =
+        document.getElementById("domain").value;
+
+    selectedDifficulty =
+        document.getElementById("difficulty").value;
+
+    questions =
+        questionBank[selectedDomain][selectedDifficulty];
+
+    if (!questions || questions.length === 0) {
+
+        alert("No questions available.");
+
+        return;
+
+    }
+
+    currentQuestion = 0;
+
+    score = 0;
+
+    selectedAnswer = null;
+
+    document
+        .getElementById("startScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("resultScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("questionScreen")
+        .classList.remove("hidden");
+
+    showQuestion();
+
+}
+
+
+/* =====================================================
+   SHOW QUESTION
+===================================================== */
+
+function showQuestion() {
+
+    const question =
+        questions[currentQuestion];
+
+    document
+        .getElementById("questionNumber")
+        .textContent =
+        "Question " +
+        (currentQuestion + 1) +
+        " of " +
+        questions.length;
+
+    document
+        .getElementById("questionText")
+        .textContent =
+        question.question;
+
+    const optionsContainer =
+        document.getElementById(
+            "optionsContainer"
+        );
+
+    optionsContainer.innerHTML = "";
+
+    selectedAnswer = null;
+
+    question.options.forEach(
+        (option, index) => {
+
+            const label =
+                document.createElement("label");
+
+            label.className = "option";
+
+            const radio =
+                document.createElement("input");
+
+            radio.type = "radio";
+
+            radio.name = "answer";
+
+            radio.value = index;
+
+            radio.addEventListener(
+                "change",
+                function () {
+
+                    selectedAnswer =
+                        Number(this.value);
+
+                    document
+                        .querySelectorAll(".option")
+                        .forEach(
+                            item =>
+                                item.classList.remove(
+                                    "selected"
+                                )
+                        );
+
+                    label.classList.add(
+                        "selected"
+                    );
+
+                }
+            );
+
+            label.appendChild(radio);
+
+            const text =
+                document.createTextNode(
+                    option
+                );
+
+            label.appendChild(text);
+
+            optionsContainer.appendChild(
+                label
+            );
+
+        }
+    );
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        nextButton.textContent =
+            "Finish Practice ✓";
+
+    } else {
+
+        nextButton.textContent =
+            "Next Question →";
+
+    }
+
+}
+
+
+/* =====================================================
+   NEXT QUESTION
+===================================================== */
+
+function nextQuestion() {
+
+    if (selectedAnswer === null) {
+
+        alert("Please select an answer.");
+
+        return;
+
+    }
+
+    const correctAnswer =
+        questions[currentQuestion].answer;
+
+    if (
+        selectedAnswer ===
+        correctAnswer
+    ) {
+
+        score++;
+
+    }
+
+    currentQuestion++;
+
+    if (
+        currentQuestion <
+        questions.length
+    ) {
+
+        showQuestion();
+
+    } else {
+
+        showResult();
+
+    }
+
+}
+
+
+/* =====================================================
+   SHOW RESULT
+===================================================== */
+
+function showResult() {
+
+    document
+        .getElementById("questionScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("resultScreen")
+        .classList.remove("hidden");
+
+    const percentage =
+        Math.round(
+            (score / questions.length) *
+            100
+        );
+
+    const domainName =
+        selectedDomain === "html"
+            ? "HTML"
+            : selectedDomain === "css"
+                ? "CSS"
+                : "JavaScript";
+
+    const difficultyName =
+        selectedDifficulty === "easy"
+            ? "Easy"
+            : selectedDifficulty === "moderate"
+                ? "Moderate"
+                : "Difficult";
+
+    document
+        .getElementById("score")
+        .textContent =
+        score +
+        " / " +
+        questions.length;
+
+    document
+        .getElementById("percentage")
+        .textContent =
+        percentage +
+        "%";
+
+    document
+        .getElementById("resultInfo")
+        .innerHTML =
+        "Domain: <strong>" +
+        domainName +
+        "</strong><br>" +
+
+        "Difficulty: <strong>" +
+        difficultyName +
+        "</strong>";
+
+    let message;
+
+    if (percentage === 100) {
+
+        message =
+            "Excellent! 🌟 Perfect score!";
+
+    } else if (percentage >= 80) {
+
+        message =
+            "Great job! 👍 Keep it up!";
+
+    } else if (percentage >= 60) {
+
+        message =
+            "Good work! 💪 Keep practicing.";
+
+    } else {
+
+        message =
+            "Keep practicing! 💪 You can improve.";
+
+    }
+
+    document
+        .getElementById("resultMessage")
+        .textContent =
+        message;
+
+
+    /* =================================================
+       SAVE RESULT FOR DASHBOARD
+    ================================================= */
+
+    const result = {
+
+        domain: domainName,
+
+        difficulty: difficultyName,
+
+        score: score,
+
+        total: questions.length,
+
+        percentage: percentage,
+
+        message: message,
+
+        date: new Date().toLocaleString()
+
+    };
+
+    localStorage.setItem(
+        "interviewResult",
+        JSON.stringify(result)
+    );
+
+}
+
+
+/* =====================================================
+   RESTART PRACTICE
+===================================================== */
+
+function restartPractice() {
+
+    document
+        .getElementById("resultScreen")
+        .classList.add("hidden");
+
+    document
+        .getElementById("startScreen")
+        .classList.remove("hidden");
+
+}
+
+
+/* =====================================================
+   GO TO DASHBOARD
+===================================================== */
+
+function goToDashboard() {
+
+    window.location.href =
+        "index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
